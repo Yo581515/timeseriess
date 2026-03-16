@@ -1,65 +1,87 @@
 services:
-  mongodb:
-    image: mongo
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: mongodb_user
-      MONGO_INITDB_ROOT_PASSWORD: password123
-    ports:
-      - "27067:27017"
-    volumes:
-      - mongo_data:/data/db
-      - ./init-mongo:/docker-entrypoint-initdb.d:ro
-
-
-  timescaledb: 
-    image: timescale/timescaledb:latest-pg16 
-    container_name: timescale-db
-    environment:
-      - POSTGRES_USER=timescaledb_user
-      - POSTGRES_PASSWORD=password123
-      - POSTGRES_DB=timescale_db
-    ports: 
-      - "5467:5432" 
-    volumes: 
-      - timescale_data:/var/lib/postgresql/data 
-      - ./init-timescaledb:/docker-entrypoint-initdb.d 
- 
-
+  
   benchmark_db:    
-    image: postgres:16
-    container_name: benchmarkdb_db
+    image: postgres:17
     environment:
-      POSTGRES_USER: benchmarkdb_user
-      POSTGRES_PASSWORD: password123
-      POSTGRES_DB: benchmark_db
+      POSTGRES_USER: ${BENCHMARKDB_USER}
+      POSTGRES_PASSWORD: ${BENCHMARKDB_PASSWORD}
+      POSTGRES_DB: ${BENCHMARKDB_DATABASE}
     ports:
-      - "5468:5432"
+      - "${BENCHMARKDB_PORT}:5432"
     volumes:
       - benchmark_data:/var/lib/postgresql/data
+    restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U benchmarkdb_user -d benchmark_db"]
+      test: ["CMD-SHELL", "pg_isready -U ${BENCHMARKDB_USER} -d ${BENCHMARKDB_DATABASE}"]
       interval: 5s
       timeout: 3s
       retries: 10
+    
 
+
+  
+  mongodb:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
+    ports:
+      - "${MONGODB_PORT}:27017"
+    volumes:
+      - mongo_data:/data/db
+      - ./init-mongo:/docker-entrypoint-initdb.d:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+
+
+  timescaledb:
+    image: timescale/timescaledb:latest-pg17
+    environment:
+      POSTGRES_USER: ${TIMESCALEDB_USER}
+      POSTGRES_PASSWORD: ${TIMESCALEDB_PASSWORD}
+      POSTGRES_DB: ${TIMESCALEDB_DATABASE}
+    ports:
+      - "${TIMESCALEDB_PORT}:5432"
+    volumes:
+      - timescale_data:/var/lib/postgresql/data
+      - ./init-timescaledb:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h localhost -U ${TIMESCALEDB_USER} -d ${TIMESCALEDB_DATABASE}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
 
  
-  influxdb: 
-    image: influxdb:2.7 
-    container_name: influxdb 
-    environment: 
-      - DOCKER_INFLUXDB_INIT_MODE=setup 
-      - DOCKER_INFLUXDB_INIT_USERNAME=influxdb 
-      - DOCKER_INFLUXDB_INIT_PASSWORD=password123 
-      - DOCKER_INFLUXDB_INIT_ORG=example-org 
-      - DOCKER_INFLUXDB_INIT_BUCKET=example-bucket
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-token
-    ports: 
-      - "8086:8086" 
-    volumes: 
-      - influx_data:/var/lib/influxdb2 
+  influxdb:
+    image: influxdb:2.7
+    container_name: influxdb
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: ${INFLUXDB_USERNAME}
+      DOCKER_INFLUXDB_INIT_PASSWORD: ${INFLUXDB_PASSWORD}
+      DOCKER_INFLUXDB_INIT_ORG: ${INFLUXDB_ORG}
+      DOCKER_INFLUXDB_INIT_BUCKET: ${INFLUXDB_BUCKET}
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${INFLUXDB_TOKEN}
+    ports:
+      - "${INFLUXDB_PORT}:8086"
+    volumes:
+      - influx_data:/var/lib/influxdb2
       - ./init-influxdb:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "influx", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
 
 
 volumes:

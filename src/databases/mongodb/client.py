@@ -85,3 +85,26 @@ class MongoDBClient:
         except Exception as e:
             self.logger.exception("MongoDB disconnect error: %s", e)
             return False
+        
+
+
+    def create_db_and_collection(self) -> bool:
+        if self.client is None:
+            raise RuntimeError("Not connected. Call connect() first.")
+        
+        db = self.client[self.database_name]
+        
+        if self.collection_name not in db.list_collection_names():
+            db.create_collection(
+                self.collection_name,
+                timeseries={
+                    "timeField": "time",
+                    "metaField": "meta",
+                    "granularity": "minutes",
+                    }
+                )
+            self.logger.info("Created collection '%s' in database '%s'", self.collection_name, self.database_name)
+        else:
+            self.logger.info("Collection '%s' already exists, skipping.", self.collection_name)
+        
+        return True

@@ -162,3 +162,7 @@ notes.txt
 .env.containers
 .env
 .env*
+
+
+nrec.pem
+test.py

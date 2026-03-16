@@ -3,6 +3,9 @@ import logging
 from src.databases.mongodb.config import MongoDBConfig
 from src.databases.mongodb.client import MongoDBClient
 
+import time
+
+
 
 class MongoDBRepository(MongoDBClient):
     """
@@ -94,8 +97,9 @@ class MongoDBRepository(MongoDBClient):
         except Exception as e:
             self.logger.exception("insert_one() error: %s", e)
             raise RuntimeError("Failed to insert document.") from e
-
-    def insert_many(self, docs: list[dict], ordered: bool = False) -> bool:
+        
+        
+    def insert_many(self, docs: list[dict]) -> tuple[bool, float]:
         if not docs:
             self.logger.error("insert_many(): empty docs")
             raise ValueError("Documents cannot be empty")
@@ -104,8 +108,11 @@ class MongoDBRepository(MongoDBClient):
             raise RuntimeError("No collection available. Call connect_and_cache() first.")
 
         try:
-            self.collection.insert_many(docs, ordered=ordered)
-            return True
+            start_time = time.perf_counter_ns()
+            self.collection.insert_many(docs)
+            end_time = time.perf_counter_ns()
+            elapsed_time_nanoseconds = end_time - start_time
+            return True, elapsed_time_nanoseconds
         except Exception as e:
             self.logger.exception("insert_many() error: %s", e)
             raise RuntimeError("Failed to insert documents.") from e
