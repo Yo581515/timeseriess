@@ -1,0 +1,692 @@
+[
+  {
+    "source": "Node 1",
+    "source_id": "sfi_smart_ocean;demo;d1;1",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        5.263733,
+        60.090717
+      ]
+    },
+    "time": "2025-01-01T00:00:00.000000Z",
+    "observations": [
+      {
+        "source": "Aanderaa Temperature PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE",
+        "parameter": "sea_water_temperature",
+        "value": 1.74,
+        "unit": "degrees_C",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Conductivity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY",
+        "parameter": "sea_water_electrical_conductivity",
+        "value": 5.547,
+        "unit": "S m-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Salinity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY",
+        "parameter": "sea_water_salinity",
+        "value": 18.29,
+        "unit": "PSU",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Oxygen PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN",
+        "parameter": "dissolved_oxygen",
+        "value": 114.5,
+        "unit": "umol L-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Turbidity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY",
+        "parameter": "turbidity",
+        "value": 3.46,
+        "unit": "NTU",
+        "qualityCodes": [
+          0
+        ]
+      }
+    ],
+    "meta": {
+      "source": "Node 1",
+      "device_id": "sfi_smart_ocean;demo;d1;1",
+      "sensor_id": "sea_water_temperature"
+    }
+  },
+  {
+    "source": "Node 1",
+    "source_id": "sfi_smart_ocean;demo;d1;1",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        5.263733,
+        60.090717
+      ]
+    },
+    "time": "2025-01-01T00:30:00.000000Z",
+    "observations": [
+      {
+        "source": "Aanderaa Temperature PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE",
+        "parameter": "sea_water_temperature",
+        "value": 11.26,
+        "unit": "degrees_C",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Conductivity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY",
+        "parameter": "sea_water_electrical_conductivity",
+        "value": 2.456,
+        "unit": "S m-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Salinity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY",
+        "parameter": "sea_water_salinity",
+        "value": 13.33,
+        "unit": "PSU",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Oxygen PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN",
+        "parameter": "dissolved_oxygen",
+        "value": 59.4,
+        "unit": "umol L-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Turbidity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY",
+        "parameter": "turbidity",
+        "value": 129.11,
+        "unit": "NTU",
+        "qualityCodes": [
+          0
+        ]
+      }
+    ],
+    "meta": {
+      "source": "Node 1",
+      "device_id": "sfi_smart_ocean;demo;d1;1",
+      "sensor_id": "sea_water_temperature"
+    }
+  },
+  {
+    "source": "Node 1",
+    "source_id": "sfi_smart_ocean;demo;d1;1",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        5.263733,
+        60.090717
+      ]
+    },
+    "time": "2025-01-01T01:00:00.000000Z",
+    "observations": [
+      {
+        "source": "Aanderaa Temperature PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE",
+        "parameter": "sea_water_temperature",
+        "value": 2.48,
+        "unit": "degrees_C",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Conductivity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY",
+        "parameter": "sea_water_electrical_conductivity",
+        "value": 5.744,
+        "unit": "S m-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Salinity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY",
+        "parameter": "sea_water_salinity",
+        "value": 22.26,
+        "unit": "PSU",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Oxygen PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN",
+        "parameter": "dissolved_oxygen",
+        "value": 325.4,
+        "unit": "umol L-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Turbidity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY",
+        "parameter": "turbidity",
+        "value": 175.34,
+        "unit": "NTU",
+        "qualityCodes": [
+          0
+        ]
+      }
+    ],
+    "meta": {
+      "source": "Node 1",
+      "device_id": "sfi_smart_ocean;demo;d1;1",
+      "sensor_id": "sea_water_temperature"
+    }
+  },
+  {
+    "source": "Node 1",
+    "source_id": "sfi_smart_ocean;demo;d1;1",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        5.263733,
+        60.090717
+      ]
+    },
+    "time": "2025-01-01T01:30:00.000000Z",
+    "observations": [
+      {
+        "source": "Aanderaa Temperature PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE",
+        "parameter": "sea_water_temperature",
+        "value": -0.5,
+        "unit": "degrees_C",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Conductivity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY",
+        "parameter": "sea_water_electrical_conductivity",
+        "value": 3.529,
+        "unit": "S m-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Salinity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY",
+        "parameter": "sea_water_salinity",
+        "value": 33.94,
+        "unit": "PSU",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Oxygen PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN",
+        "parameter": "dissolved_oxygen",
+        "value": 151.3,
+        "unit": "umol L-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Turbidity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY",
+        "parameter": "turbidity",
+        "value": 108.66,
+        "unit": "NTU",
+        "qualityCodes": [
+          0
+        ]
+      }
+    ],
+    "meta": {
+      "source": "Node 1",
+      "device_id": "sfi_smart_ocean;demo;d1;1",
+      "sensor_id": "sea_water_temperature"
+    }
+  },
+  {
+    "source": "Node 1",
+    "source_id": "sfi_smart_ocean;demo;d1;1",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        5.263733,
+        60.090717
+      ]
+    },
+    "time": "2025-01-01T02:00:00.000000Z",
+    "observations": [
+      {
+        "source": "Aanderaa Temperature PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE",
+        "parameter": "sea_water_temperature",
+        "value": 19.19,
+        "unit": "degrees_C",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Conductivity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY",
+        "parameter": "sea_water_electrical_conductivity",
+        "value": 4.583,
+        "unit": "S m-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Salinity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY",
+        "parameter": "sea_water_salinity",
+        "value": 33.76,
+        "unit": "PSU",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Oxygen PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN",
+        "parameter": "dissolved_oxygen",
+        "value": 378.1,
+        "unit": "umol L-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Turbidity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY",
+        "parameter": "turbidity",
+        "value": 157.18,
+        "unit": "NTU",
+        "qualityCodes": [
+          0
+        ]
+      }
+    ],
+    "meta": {
+      "source": "Node 1",
+      "device_id": "sfi_smart_ocean;demo;d1;1",
+      "sensor_id": "sea_water_temperature"
+    }
+  },
+  {
+    "source": "Node 1",
+    "source_id": "sfi_smart_ocean;demo;d1;1",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        5.263733,
+        60.090717
+      ]
+    },
+    "time": "2025-01-01T02:30:00.000000Z",
+    "observations": [
+      {
+        "source": "Aanderaa Temperature PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE",
+        "parameter": "sea_water_temperature",
+        "value": 7,
+        "unit": "degrees_C",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Conductivity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY",
+        "parameter": "sea_water_electrical_conductivity",
+        "value": 5.217,
+        "unit": "S m-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Salinity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY",
+        "parameter": "sea_water_salinity",
+        "value": 22.89,
+        "unit": "PSU",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Oxygen PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN",
+        "parameter": "dissolved_oxygen",
+        "value": 291.3,
+        "unit": "umol L-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Turbidity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY",
+        "parameter": "turbidity",
+        "value": 48.95,
+        "unit": "NTU",
+        "qualityCodes": [
+          0
+        ]
+      }
+    ],
+    "meta": {
+      "source": "Node 1",
+      "device_id": "sfi_smart_ocean;demo;d1;1",
+      "sensor_id": "sea_water_temperature"
+    }
+  },
+  {
+    "source": "Node 1",
+    "source_id": "sfi_smart_ocean;demo;d1;1",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        5.263733,
+        60.090717
+      ]
+    },
+    "time": "2025-01-01T03:00:00.000000Z",
+    "observations": [
+      {
+        "source": "Aanderaa Temperature PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE",
+        "parameter": "sea_water_temperature",
+        "value": 13.45,
+        "unit": "degrees_C",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Conductivity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY",
+        "parameter": "sea_water_electrical_conductivity",
+        "value": 4.705,
+        "unit": "S m-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Salinity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY",
+        "parameter": "sea_water_salinity",
+        "value": 26.7,
+        "unit": "PSU",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Oxygen PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN",
+        "parameter": "dissolved_oxygen",
+        "value": 382.8,
+        "unit": "umol L-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Turbidity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY",
+        "parameter": "turbidity",
+        "value": 117.27,
+        "unit": "NTU",
+        "qualityCodes": [
+          0
+        ]
+      }
+    ],
+    "meta": {
+      "source": "Node 1",
+      "device_id": "sfi_smart_ocean;demo;d1;1",
+      "sensor_id": "sea_water_temperature"
+    }
+  },
+  {
+    "source": "Node 1",
+    "source_id": "sfi_smart_ocean;demo;d1;1",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        5.263733,
+        60.090717
+      ]
+    },
+    "time": "2025-01-01T03:30:00.000000Z",
+    "observations": [
+      {
+        "source": "Aanderaa Temperature PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE",
+        "parameter": "sea_water_temperature",
+        "value": 7.46,
+        "unit": "degrees_C",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Conductivity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY",
+        "parameter": "sea_water_electrical_conductivity",
+        "value": 3.712,
+        "unit": "S m-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Salinity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY",
+        "parameter": "sea_water_salinity",
+        "value": 28.04,
+        "unit": "PSU",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Oxygen PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN",
+        "parameter": "dissolved_oxygen",
+        "value": 276.9,
+        "unit": "umol L-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Turbidity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY",
+        "parameter": "turbidity",
+        "value": 51.93,
+        "unit": "NTU",
+        "qualityCodes": [
+          0
+        ]
+      }
+    ],
+    "meta": {
+      "source": "Node 1",
+      "device_id": "sfi_smart_ocean;demo;d1;1",
+      "sensor_id": "sea_water_temperature"
+    }
+  },
+  {
+    "source": "Node 1",
+    "source_id": "sfi_smart_ocean;demo;d1;1",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        5.263733,
+        60.090717
+      ]
+    },
+    "time": "2025-01-01T04:00:00.000000Z",
+    "observations": [
+      {
+        "source": "Aanderaa Temperature PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE",
+        "parameter": "sea_water_temperature",
+        "value": 16.16,
+        "unit": "degrees_C",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Conductivity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY",
+        "parameter": "sea_water_electrical_conductivity",
+        "value": 2.42,
+        "unit": "S m-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Salinity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY",
+        "parameter": "sea_water_salinity",
+        "value": 35.44,
+        "unit": "PSU",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Oxygen PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN",
+        "parameter": "dissolved_oxygen",
+        "value": 156.3,
+        "unit": "umol L-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Turbidity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY",
+        "parameter": "turbidity",
+        "value": 145.5,
+        "unit": "NTU",
+        "qualityCodes": [
+          0
+        ]
+      }
+    ],
+    "meta": {
+      "source": "Node 1",
+      "device_id": "sfi_smart_ocean;demo;d1;1",
+      "sensor_id": "sea_water_temperature"
+    }
+  },
+  {
+    "source": "Node 1",
+    "source_id": "sfi_smart_ocean;demo;d1;1",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        5.263733,
+        60.090717
+      ]
+    },
+    "time": "2025-01-01T04:30:00.000000Z",
+    "observations": [
+      {
+        "source": "Aanderaa Temperature PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE",
+        "parameter": "sea_water_temperature",
+        "value": 2.56,
+        "unit": "degrees_C",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Conductivity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY",
+        "parameter": "sea_water_electrical_conductivity",
+        "value": 4.35,
+        "unit": "S m-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Salinity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY",
+        "parameter": "sea_water_salinity",
+        "value": 15.33,
+        "unit": "PSU",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Oxygen PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN",
+        "parameter": "dissolved_oxygen",
+        "value": 191.4,
+        "unit": "umol L-1",
+        "qualityCodes": [
+          0
+        ]
+      },
+      {
+        "source": "Aanderaa Turbidity PROBE",
+        "source_id": "sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY",
+        "parameter": "turbidity",
+        "value": 10.21,
+        "unit": "NTU",
+        "qualityCodes": [
+          0
+        ]
+      }
+    ],
+    "meta": {
+      "source": "Node 1",
+      "device_id": "sfi_smart_ocean;demo;d1;1",
+      "sensor_id": "sea_water_temperature"
+    }
+  }
+]

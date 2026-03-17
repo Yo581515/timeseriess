@@ -148,12 +148,13 @@ import math
 import time
 from src.databases.benchmark_db.models import  IngestionBenchmarkResult
 
+# 100 batch size, 100 full inserts took 14 mins
 BATCH_SIZE = 1000
 BATCH_SIZE = BATCH_SIZE / 5 # one mongo db doc have 5 observations
 # print("Calculated doc batch size:", BATCH_SIZE)
 
-# batch_number = 8
-# files = files[batch_number-1:batch_number]
+batch_number = 12
+files = files[batch_number-1:batch_number]
 print(type(files), len(files)) #list
 print(type(sizes), len(sizes)) # doc
 print(type(files[0]))
@@ -165,7 +166,7 @@ for batch_id, sataset_meta in sizes.items():
 # print(sizes_meta)
 
 # 50 tar 3 minutter
-number_of_fill_inserted_data = 200
+number_of_fill_inserted_data = 1
 
 try:
     st = time.perf_counter()
@@ -187,14 +188,14 @@ try:
             
             
             # cache docs in MongoDBRepository to speed up inserts
-            try:
-                docs_seg = docs[start_batch_index:end_batch_index]
-                mongodb_repo.insert_many(docs_seg)
-                mongodb_repo.insert_many(docs_seg)
-                mongodb_repo.insert_many(docs_seg)
-            except Exception as e:
-                logger.error("An error occurred during initial caching of docs: %s", e)
-                raise Exception("Initial caching of docs failed") from e
+            # try:
+            #     docs_seg = docs[start_batch_index:end_batch_index]
+            #     mongodb_repo.insert_many(docs_seg)
+            #     mongodb_repo.insert_many(docs_seg)
+            #     mongodb_repo.insert_many(docs_seg)
+            # except Exception as e:
+            #     logger.error("An error occurred during initial caching of docs: %s", e)
+            #     raise Exception("Initial caching of docs failed") from e
             
                         
             for run_num in range(1,num_iterations+1):
@@ -209,6 +210,8 @@ try:
                     logger.error("An error occurred during insert_many: %s", e)
                     inserted = False
                     raise Exception("Insert operation failed") from e
+                
+            
                     
                     
                 
@@ -216,9 +219,13 @@ try:
                 if inserted:
                     print(f"Run {run_num}: Inserted {len(docs_seg)} docs in {elapsed_time_ns} ns")
                     
+            
+                    
             # Clear MongoDB collection after each full batch run   
             try:
-                mongodb_repo.delete_by_query({})
+                # pass
+                break
+                # mongodb_repo.delete_by_query({})
             except Exception as e:
                 logger.error("An error occurred while clearing MongoDB collection: %s", e)
                 raise Exception("Failed to clear MongoDB collection") from e
