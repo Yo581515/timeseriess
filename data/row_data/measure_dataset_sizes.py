@@ -35,7 +35,7 @@ for filename in sorted(os.listdir(DATA_DIR)):
     record_count = int(match.group(2))
 
     rows.append({
-        "dataset": filename,
+        "dataset": filename.replace(".json", ""),
         "batch_id": batch_id,
         "record_count": record_count,
         "json_data_bytes": data_size_bytes,

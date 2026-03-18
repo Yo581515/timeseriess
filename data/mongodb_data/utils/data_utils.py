@@ -67,27 +67,12 @@ def convert_location(data_point: dict, logger: logging.Logger) -> bool:
 
 
 def extract_meta_fields(data_point: dict, logger: logging.Logger) -> bool:
-    """
-    Build meta from your dataset structure:
-      - meta.source    <- top-level 'source'
-      - meta.device_id <- top-level 'source_id'
-      - meta.sensor_id <- first observation 'parameter' (fallback to observation 'source_id')
-    """
     try:
         source = data_point.get("source")
         source_id = data_point.get("source_id")
-
-        sensor_id = None
-        observations = data_point.get("observations")
-        if isinstance(observations, list) and observations:
-            obs0 = observations[0] if isinstance(observations[0], dict) else None
-            if obs0:
-                sensor_id = obs0.get("parameter") or obs0.get("source_id")
-
         data_point["meta"] = {
             "source": source,
-            "device_id": source_id,
-            "sensor_id": sensor_id,
+            "source_id": source_id,
         }
         return True
 

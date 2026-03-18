@@ -148,12 +148,12 @@ import math
 import time
 from src.databases.benchmark_db.models import  IngestionBenchmarkResult
 
-# 100 batch size, 100 full inserts took 14 mins
-BATCH_SIZE = 1000
+# 100 batch size, 50 full inserts took 8-9 mins
+BATCH_SIZE = 100
 BATCH_SIZE = BATCH_SIZE / 5 # one mongo db doc have 5 observations
 # print("Calculated doc batch size:", BATCH_SIZE)
 
-batch_number = 12
+batch_number = 1
 files = files[batch_number-1:batch_number]
 print(type(files), len(files)) #list
 print(type(sizes), len(sizes)) # doc
@@ -166,7 +166,7 @@ for batch_id, sataset_meta in sizes.items():
 # print(sizes_meta)
 
 # 50 tar 3 minutter
-number_of_fill_inserted_data = 1
+number_of_fill_inserted_data = 50
 
 try:
     st = time.perf_counter()
@@ -188,16 +188,16 @@ try:
             
             
             # cache docs in MongoDBRepository to speed up inserts
-            # try:
-            #     docs_seg = docs[start_batch_index:end_batch_index]
-            #     mongodb_repo.insert_many(docs_seg)
-            #     mongodb_repo.insert_many(docs_seg)
-            #     mongodb_repo.insert_many(docs_seg)
-            # except Exception as e:
-            #     logger.error("An error occurred during initial caching of docs: %s", e)
-            #     raise Exception("Initial caching of docs failed") from e
+            try:
+                docs_seg = docs[start_batch_index:end_batch_index]
+                mongodb_repo.insert_many(docs_seg)
+                mongodb_repo.insert_many(docs_seg)
+                mongodb_repo.insert_many(docs_seg)
+            except Exception as e:
+                logger.error("An error occurred during initial caching of docs: %s", e)
+                raise Exception("Initial caching of docs failed") from e
             
-                        
+            time.sleep(60)            
             for run_num in range(1,num_iterations+1):
                 docs_seg = docs[start_batch_index:end_batch_index]
                 # print("docs_seg length", len(docs_seg))
@@ -206,26 +206,35 @@ try:
                     start_batch_index = end_batch_index
                     end_batch_index = int(end_batch_index + BATCH_SIZE if end_batch_index + BATCH_SIZE <= docs_len else docs_len)
                     total_insert_time_ns += elapsed_time_ns # elapsed time ns
+                    time.sleep(60) # small sleep to avoid overwhelming the database with back-to-back inserts
                 except Exception as e:
                     logger.error("An error occurred during insert_many: %s", e)
                     inserted = False
                     raise Exception("Insert operation failed") from e
-                
-            
-                    
-                    
-                
-                
                 if inserted:
                     print(f"Run {run_num}: Inserted {len(docs_seg)} docs in {elapsed_time_ns} ns")
-                    
+            
+            # import time
+            # time.sleep(60) # wait a bit to ensure all writes are flushed to disk before getting collection stats
+            # collection = mongodb_repo.collection
+            # stats = collection.database.command("collstats", collection.name)
+            
+            # storageSize = stats.get("storageSize", 0)
+            # totalIndexSize = stats.get("totalIndexSize", 0)
+            # totalSize = stats.get("totalSize", 0)   
+            
+            # print(storageSize, totalIndexSize, totalSize)
+            
+            
+            
+
             
                     
             # Clear MongoDB collection after each full batch run   
             try:
                 # pass
-                break
-                # mongodb_repo.delete_by_query({})
+                # break
+                mongodb_repo.delete_by_query({})
             except Exception as e:
                 logger.error("An error occurred while clearing MongoDB collection: %s", e)
                 raise Exception("Failed to clear MongoDB collection") from e
@@ -276,6 +285,7 @@ try:
                 print("Inserted IngestionBenchmarkResult:", result.id)
                 # print(result)
                 print()
+                
             except Exception as e:
                 logger.error("An error occurred while saving benchmark results: %s", e)
     er = time.perf_counter()

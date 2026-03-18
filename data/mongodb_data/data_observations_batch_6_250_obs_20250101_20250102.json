@@ -64,8 +64,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -133,8 +132,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -202,8 +200,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -271,8 +268,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -340,8 +336,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -409,8 +404,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -478,8 +472,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -547,8 +540,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -616,8 +608,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -685,8 +676,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -754,8 +744,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -823,8 +812,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -892,8 +880,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -961,8 +948,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1030,8 +1016,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1099,8 +1084,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1168,8 +1152,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1237,8 +1220,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1306,8 +1288,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1375,8 +1356,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1444,8 +1424,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1513,8 +1492,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1582,8 +1560,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1651,8 +1628,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1720,8 +1696,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1789,8 +1764,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1858,8 +1832,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1927,8 +1900,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -1996,8 +1968,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2065,8 +2036,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2134,8 +2104,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2203,8 +2172,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2272,8 +2240,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2341,8 +2308,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2410,8 +2376,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2479,8 +2444,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2548,8 +2512,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2617,8 +2580,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2686,8 +2648,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2755,8 +2716,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2824,8 +2784,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2893,8 +2852,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -2962,8 +2920,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -3031,8 +2988,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -3100,8 +3056,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -3169,8 +3124,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -3238,8 +3192,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -3307,8 +3260,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -3376,8 +3328,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   },
   {
@@ -3445,8 +3396,7 @@
     ],
     "meta": {
       "source": "Node 1",
-      "device_id": "sfi_smart_ocean;demo;d1;1",
-      "sensor_id": "sea_water_temperature"
+      "source_id": "sfi_smart_ocean;demo;d1;1"
     }
   }
 ]
