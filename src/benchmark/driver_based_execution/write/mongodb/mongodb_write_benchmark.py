@@ -7,7 +7,7 @@ import json
 import pandas as pd
 from pathlib import Path
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
 
 lines = ""
 for i in range(50):
@@ -90,11 +90,18 @@ mongodb_config_dict = load_config(mongodb_config_file_path)
 logger = get_logger("mongodb_ingest_benchmark.py", mongodb_config_dict["general"]["log_file"])
 mongodb_config = get_mongodb_config(mongodb_config_dict["database"])
 mongodb_repo = MongoDBRepository(mongodb_config, logger)
-mongodb_repo.connect_and_cache()
-if mongodb_repo.ping():
-    print("MongoDB connection successful.")
-    mongodb_repo.create_db_and_collection()
-    mongodb_repo.delete_by_query({})
+
+try:
+    mongodb_repo.connect_and_cache()
+    if mongodb_repo.ping():
+        print("MongoDB connection successful.")
+        mongodb_repo.create_db_and_collection()
+        mongodb_repo.delete_by_query({})
+except Exception as e:
+    logger.error("An error occurred while setting up MongoDB client: %s", e)
+    raise Exception("MongoDB client setup failed") from e
+finally:
+    mongodb_repo.disconnect()
 
 
 print(lines)
@@ -153,8 +160,8 @@ BATCH_SIZE = 100
 BATCH_SIZE = BATCH_SIZE / 5 # one mongo db doc have 5 observations
 # print("Calculated doc batch size:", BATCH_SIZE)
 
-batch_number = 1
-files = files[batch_number-1:batch_number]
+# batch_number = 1
+# files = files[batch_number-1:batch_number]
 print(type(files), len(files)) #list
 print(type(sizes), len(sizes)) # doc
 print(type(files[0]))
@@ -165,11 +172,14 @@ for batch_id, sataset_meta in sizes.items():
 # sizes_meta = sizes[batch_number]
 # print(sizes_meta)
 
-# 50 tar 3 minutter
-number_of_fill_inserted_data = 50
+# 25 tar 3 minutter
+number_of_fill_inserted_data = 25
 
 try:
     st = time.perf_counter()
+    mongodb_repo.connect_and_cache()
+    mongodb_repo.create_db_and_collection()
+    mongodb_repo.delete_by_query({})
     for i in range(number_of_fill_inserted_data):
         for batch_id, docs in files:
             print("batch_id is ", batch_id)
@@ -190,14 +200,21 @@ try:
             # cache docs in MongoDBRepository to speed up inserts
             try:
                 docs_seg = docs[start_batch_index:end_batch_index]
+                docs_seg = [doc for doc in docs_seg]
+                for doc in docs_seg:
+                    doc["time"] = doc["time"] - timedelta(days=365*5) # shift time back 5 years to avoid hitting MongoDB's 2038 time limit during benchmarking
                 mongodb_repo.insert_many(docs_seg)
+                for doc in docs_seg:
+                    doc["time"] = doc["time"] + timedelta(days=365*1)
                 mongodb_repo.insert_many(docs_seg)
+                for doc in docs_seg:
+                    doc["time"] = doc["time"] + timedelta(days=365*1)
                 mongodb_repo.insert_many(docs_seg)
             except Exception as e:
                 logger.error("An error occurred during initial caching of docs: %s", e)
                 raise Exception("Initial caching of docs failed") from e
             
-            time.sleep(60)            
+            # time.sleep(60)            
             for run_num in range(1,num_iterations+1):
                 docs_seg = docs[start_batch_index:end_batch_index]
                 # print("docs_seg length", len(docs_seg))
@@ -206,7 +223,7 @@ try:
                     start_batch_index = end_batch_index
                     end_batch_index = int(end_batch_index + BATCH_SIZE if end_batch_index + BATCH_SIZE <= docs_len else docs_len)
                     total_insert_time_ns += elapsed_time_ns # elapsed time ns
-                    time.sleep(60) # small sleep to avoid overwhelming the database with back-to-back inserts
+                    # time.sleep(60) # small sleep to avoid overwhelming the database with back-to-back inserts
                 except Exception as e:
                     logger.error("An error occurred during insert_many: %s", e)
                     inserted = False
@@ -292,6 +309,9 @@ try:
     tt = er - st
     print(lines)
     print(f"Total time for inserting {number_of_fill_inserted_data} full data runs: {tt} seconds or {tt/60} minutes")
+except Exception as e:
+    logger.error("An error occurred during the benchmark: %s", e)
+    raise Exception("Benchmark execution failed") from e
 finally:
     mongodb_repo.disconnect()
     bm_db.disconnect()    

@@ -1,134 +1,101 @@
-from datetime import datetime, time, timezone, timedelta
-import logging
 import time
+import logging
+from datetime import datetime, timezone
 
 from influxdb_client import Point, WritePrecision
-
 
 from src.databases.influxdb.client import InfluxDB_Client
 from src.databases.influxdb.config import InfluxDBConfig
 from src.databases.influxdb.models.observation import Observation
 
+MEASUREMENT = "ocean_observations"
+
 
 class InfluxRepo(InfluxDB_Client):
-    def __init__(self, influxdb_config: InfluxDBConfig, logger: logging.Logger): 
+
+    def __init__(self, influxdb_config: InfluxDBConfig, logger: logging.Logger):
         super().__init__(influxdb_config, logger)
-        
-    
-    def ping(self):
-        try:
-            self.logger.info("Pinging InfluxDB...")
-            ping = self.write_client.ping()
-            
-            if ping:
-                self.logger.info(f"Successfully connected to InfluxDB, pinged : {ping}")
-            else:
-                self.logger.error(f"Failed to connect to InfluxDB, pinged: {ping}")
-        except Exception as e:
-            self.logger.error(f"Error connecting to InfluxDB: {e}")
-            raise Exception(f"Error connecting to InfluxDB: {e}")
-            
-            
-    
-    def insert_one_observation(self, obs: Observation):
-        try:
-            self.logger.info("Inserting one observation into InfluxDB...")
-            with self.write_api() as write_api:
-                point = (
-                    Point("observations")
-                .tag("node_source", obs.node_source)
-                .tag("node_source_id", obs.node_source_id)
-                .tag("sensor_source", obs.sensor_source)
-                .tag("sensor_source_id", obs.sensor_source_id)
 
-                .field("temperature", float(obs.temperature))
-                .field("humidity", float(obs.humidity))
-                .field("salinity", float(obs.salinity))
-                
-                .tag("temperature_unit", obs.temperature_unit)
-                .tag("humidity_unit", obs.humidity_unit)
-                .tag("salinity_unit", obs.salinity_unit)
-                
-                .field("latitude", float(obs.latitude))
-                .field("longitude", float(obs.longitude))
-                .field(
-                    "quality_codes",
-                    "[" + ",".join(str(q) for q in obs.quality_codes) + "]"
-                )
-                .time(obs.time, WritePrecision.NS)
-                )
+    def ping(self) -> bool:
+        try:
+            result = self.write_client.ping()
+            if result:
+                self.logger.info("InfluxDB ping successful")
+                return True
+            self.logger.error("InfluxDB ping failed")
+            return False
+        except Exception as e:
+            self.logger.error(f"Error pinging InfluxDB: {e}")
+            raise Exception(f"Error pinging InfluxDB: {e}")
+
+    def _to_point(self, obs: Observation) -> Point:
+        return (
+            Point(MEASUREMENT)
+            .tag("node_source", obs.node_source)
+            .tag("node_source_id", obs.node_source_id)
+            .tag("sensor_source", obs.sensor_source)
+            .tag("sensor_source_id", obs.sensor_source_id)
+            .tag("parameter", obs.parameter)
+            .tag("unit", obs.unit)
+            .field("value", float(obs.value))
+            .field("latitude", float(obs.latitude))
+            .field("longitude", float(obs.longitude))
+            .field("quality_codes", obs.quality_codes_str())
+            .time(obs.time, WritePrecision.NS)
+        )
+
+    def insert_one(self, obs: Observation) -> int:
+        try:
+            point = self._to_point(obs)
+            with self.write_api() as write_api:
+                t0 = time.perf_counter_ns()
                 write_api.write(bucket=self.bucket, record=point)
-            
+                elapsed_ns = time.perf_counter_ns() - t0
+            self.logger.info(f"Inserted 1 observation in {elapsed_ns} ns")
+            return elapsed_ns
         except Exception as e:
-            self.logger.error(f"Error inserting one observation into InfluxDB: {e}")
-            raise Exception(f"Error inserting one observation into InfluxDB: {e}")
-            
-    def insert_observations(self, obs_list: list[Observation]):
+            self.logger.error(f"Error inserting observation: {e}")
+            raise Exception(f"Insert failed: {e}")
+
+    def insert_many(self, observations: list[Observation]) -> int:
         try:
-            self.logger.info(f"Inserting {len(obs_list)} observations into InfluxDB...")
+            points = [self._to_point(obs) for obs in observations]
             with self.write_api() as write_api:
-                points = []
-                for obs in obs_list:
-                    point = (
-                        Point("observations")
-                    .tag("node_source", obs.node_source)
-                    .tag("node_source_id", obs.node_source_id)
-                    .tag("sensor_source", obs.sensor_source)
-                    .tag("sensor_source_id", obs.sensor_source_id)
-
-                    .field("temperature", float(obs.temperature))
-                    .field("humidity", float(obs.humidity))
-                    .field("salinity", float(obs.salinity))
-                    
-                    .tag("temperature_unit", obs.temperature_unit)
-                    .tag("humidity_unit", obs.humidity_unit)
-                    .tag("salinity_unit", obs.salinity_unit)
-                    
-                    .field("latitude", float(obs.latitude))
-                    .field("longitude", float(obs.longitude))
-                    .field(
-                        "quality_codes",
-                        "[" + ",".join(str(q) for q in obs.quality_codes) + "]"
-                    )
-                    .time(obs.time, WritePrecision.NS)
-                    )
-                    points.append(point)
-                measure_per_time = time.perf_counter()
+                t0 = time.perf_counter_ns()
                 write_api.write(bucket=self.bucket, record=points)
-                measure_per_time = time.perf_counter() - measure_per_time
-                self.logger.info(f"Inserted {len(obs_list)} observations into InfluxDB in {measure_per_time:.2f} seconds")
-            
+                elapsed_ns = time.perf_counter_ns() - t0
+            self.logger.info(f"Inserted {len(observations)} observations in {elapsed_ns} ns")
+            return elapsed_ns
         except Exception as e:
-            self.logger.error(f"Error inserting observations into InfluxDB: {e}")
-            raise Exception(f"Error inserting observations into InfluxDB: {e}")
-     
+            self.logger.error(f"Error inserting observations: {e}")
+            raise Exception(f"Batch insert failed: {e}")
 
-
-    def query_observations_range_date(self, start_utc : datetime, end_utc:datetime)-> list[Observation]:
-        print(f"Querying observations from {start_utc} to {end_utc}...")
-        
+    def query_by_parameter(
+        self,
+        parameter: str,
+        start_time: datetime,
+        end_time: datetime,
+    ) -> list[Observation]:
         try:
-            start = start_utc.astimezone(timezone.utc).isoformat()
-            stop = end_utc.astimezone(timezone.utc).isoformat()
-            print(f"Converted start: {start}, stop: {stop}")
+            start = start_time.astimezone(timezone.utc).isoformat()
+            stop = end_time.astimezone(timezone.utc).isoformat()
 
             query = f"""
-                        from(bucket: "{self.bucket}")
-                        |> range(start: time(v: "{start}"), stop: time(v: "{stop}"))
-                        |> filter(fn: (r) => r._measurement == "observations")
-                        |> pivot(
-                            rowKey: ["_time", "node_source", "node_source_id", "sensor_source", "sensor_source_id"],
-                            columnKey: ["_field"],
-                            valueColumn: "_value"
-                        )
-                    """
-            print(query)
-            self.logger.info("Query: %s", query)
-            
-            measure_per_time = time.perf_counter()
+                from(bucket: "{self.bucket}")
+                |> range(start: time(v: "{start}"), stop: time(v: "{stop}"))
+                |> filter(fn: (r) => r._measurement == "{MEASUREMENT}")
+                |> filter(fn: (r) => r.parameter == "{parameter}")
+                |> pivot(
+                    rowKey: ["_time", "node_source_id", "sensor_source_id"],
+                    columnKey: ["_field"],
+                    valueColumn: "_value"
+                )
+            """
+
+            t0 = time.perf_counter_ns()
             tables = self.query_api().query(query, org=self.org)
-            measure_per_time = time.perf_counter() - measure_per_time
-            self.logger.info("Query execution time: %f seconds", measure_per_time)
+            elapsed_ns = time.perf_counter_ns() - t0
+            self.logger.info(f"Query returned in {elapsed_ns} ns")
 
             observations = []
             for table in tables:
@@ -136,123 +103,88 @@ class InfluxRepo(InfluxDB_Client):
                     v = record.values
                     qc_raw = v.get("quality_codes", "[]")
                     qcs = [int(q) for q in qc_raw.strip("[]").split(",") if q]
-
-                    observations.append(
-                        Observation(
-                            time=v.get("_time"),
-                            node_source=v.get("node_source"),
-                            node_source_id=v.get("node_source_id"),
-                            sensor_source=v.get("sensor_source"),
-                            sensor_source_id=v.get("sensor_source_id"),
-                            latitude=float(v.get("latitude", 0)),
-                            longitude=float(v.get("longitude", 0)),
-                            temperature=float(v.get("temperature", 0)),
-                            humidity=float(v.get("humidity", 0)),
-                            salinity=float(v.get("salinity", 0)),
-                            temperature_unit=v.get("temperature_unit", ""),
-                            humidity_unit=v.get("humidity_unit", ""),
-                            salinity_unit=v.get("salinity_unit", ""),
-                            quality_codes=qcs,
-                        )
-                    )
-
+                    observations.append(Observation(
+                        time=v.get("_time"),
+                        node_source=v.get("node_source"),
+                        node_source_id=v.get("node_source_id"),
+                        latitude=float(v.get("latitude", 0)),
+                        longitude=float(v.get("longitude", 0)),
+                        sensor_source=v.get("sensor_source"),
+                        sensor_source_id=v.get("sensor_source_id"),
+                        parameter=v.get("parameter"),
+                        value=float(v.get("value", 0)),
+                        unit=v.get("unit", ""),
+                        quality_codes=qcs,
+                    ))
             return observations
 
         except Exception as e:
-            self.logger.error(f"Error querying observations from InfluxDB: {e}")
+            self.logger.error(f"Error querying observations: {e}")
             return []
 
-
-
-    def clear_observations(self):
+    def delete_all(self) -> None:
         try:
-            self.logger.info("Clearing all observations from InfluxDB...")
             delete_api = self.write_client.delete_api()
-            start = "2023-01-01T00:00:00Z"
+            start = "2000-01-01T00:00:00Z"
             stop = datetime.now(timezone.utc).isoformat()
-            delete_api.delete(start, stop, '_measurement="observations"', bucket=self.bucket, org=self.org)
-            self.logger.info("All observations cleared from InfluxDB.")
+            delete_api.delete(
+                start, stop,
+                f'_measurement="{MEASUREMENT}"',
+                bucket=self.bucket,
+                org=self.org,
+            )
+            self.logger.info("Deleted all observations from InfluxDB")
         except Exception as e:
-            self.logger.error(f"Error clearing observations from InfluxDB: {e}")
-        
+            self.logger.error(f"Error deleting observations: {e}")
+            raise Exception(f"Delete failed: {e}")
+
 
 if __name__ == "__main__":
-    import random
-    
+    from datetime import timedelta
     from src.common.config import load_config
     from src.common.logger import get_logger
     from src.databases.influxdb.config import get_influxdb_config
-    
-    
 
-    influxdb_config_path = "./configs/config-influxdb.yml" 
-    influxdb_config_dict = load_config(influxdb_config_path) #dict
-    logger = get_logger("influx_repo.py", influxdb_config_dict["general"]["log_file"])
-    influxdb_config = get_influxdb_config(influxdb_config_dict["database"])
-    print(influxdb_config)
-    client_repo = InfluxRepo(influxdb_config, logger)
-    
-    # clear existing observations
+    def utc_now() -> datetime:
+        return datetime.now(timezone.utc)
+
+    influxdb_config = load_config("./configs/config-influxdb.yml")
+    logger = get_logger("influx_repo", influxdb_config["general"]["log_file"])
+    repo = InfluxRepo(get_influxdb_config(influxdb_config["database"]), logger)
+
+    print("ping:", repo.ping())
+
+    repo.delete_all()
+
     try:
-        client_repo.clear_observations()
-    except Exception as e:
-        print(f"Error clearing observations: {e}")  
-
-    
-    def utc_now(delta):
-        return datetime.now(timezone.utc) - timedelta(hours=delta)
-    
-    observations = []
-    
-    # insert 1000 different observations
-    i = 0
-    range_end = 100
-    for i in range(range_end):
-        
         obs = Observation(
-            time=utc_now(range_end - i   ),
-            node_source="test_node",
-            node_source_id="node_123",
-            latitude=40.7128 + (i * 0.001),
-            longitude=-74.0060 + (i * 0.001),
-            sensor_source="test_sensor",
-            sensor_source_id="sensor_456",
-            temperature=25.5 + (i % 10) - 5,
-            humidity=60.0 + (i % 20) - 10,
-            salinity=35.0 + (i % 5) - 2.5,
-            temperature_unit="C",
-            humidity_unit="%",
-            salinity_unit="ppt",
-            quality_codes= random.sample(range(6), random.randint(1, 6))
+            time=utc_now(),
+            node_source="Node 1",
+            node_source_id="sfi_smart_ocean;demo;d1;1",
+            latitude=60.090717,
+            longitude=5.263733,
+            sensor_source="Aanderaa Temperature PROBE",
+            sensor_source_id="sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE",
+            parameter="sea_water_temperature",
+            value=16.71,
+            unit="degrees_C",
+            quality_codes=[0],
         )
-        observations.append(obs)
-        print(f"Created observation: {i}")
-        i += 1
-        import time
-        time.sleep(0.01)  # slight delay to ensure different timestamps
-    
-    
-    # insert observations
-    try:
-        print(f"Inserting {len(observations)} observations into InfluxDB...")
-        client_repo.insert_observations(observations)
-        print(f"Inserted {len(observations)} observations into InfluxDB.")
+        repo.insert_one(obs)
+        print("insert_one ok")
     except Exception as e:
-        print(f"Error writing observation: {e}")
-    
-    tables = None
-    start_time = utc_now(200)
-    stop_time = utc_now(0)
-        
-        
-    # query_observations
+        logger.error(f"insert_one failed: {e}")
+
     try:
-        queried_observations = client_repo.query_observations_range_date(start_time, stop_time)
-        print(f"Queried {len(queried_observations)} observations from InfluxDB.")
-        for obs in queried_observations[:5]:  # print first 5 observations
-            print(obs)
+        end_dt = utc_now()
+        start_dt = end_dt - timedelta(hours=1)
+        results = repo.query_by_parameter("sea_water_temperature", start_dt, end_dt)
+        print(f"query returned {len(results)} rows")
+        if results:
+            print(results[0])
     except Exception as e:
-        print(f"Error querying observations: {e}")
+        logger.error(f"query failed: {e}")
     finally:
-        client_repo.close()
-        
+        repo.close()
+
+    print("done")

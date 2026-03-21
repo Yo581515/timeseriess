@@ -16,18 +16,22 @@
 │   ├── gen_data.txt
 │   ├── influxdb_data
 │   ├── mongodb_data
-│   │   ├── data_observations_batch_1_100_obs_20250101_20250101.json
-│   │   ├── data_observations_batch_10_20000_obs_20250101_20250325.json
-│   │   ├── data_observations_batch_11_30000_obs_20250101_20250505.json
-│   │   ├── data_observations_batch_12_50000_obs_20250101_20250728.json
-│   │   ├── data_observations_batch_2_250_obs_20250101_20250102.json
-│   │   ├── data_observations_batch_3_500_obs_20250101_20250103.json
-│   │   ├── data_observations_batch_4_1000_obs_20250101_20250105.json
-│   │   ├── data_observations_batch_5_2000_obs_20250101_20250109.json
-│   │   ├── data_observations_batch_6_3000_obs_20250101_20250113.json
-│   │   ├── data_observations_batch_7_5000_obs_20250101_20250121.json
-│   │   ├── data_observations_batch_8_7500_obs_20250101_20250201.json
-│   │   ├── data_observations_batch_9_10000_obs_20250101_20250211.json
+│   │   ├── data_observations_batch_1_5_obs_20250101_20250101.json
+│   │   ├── data_observations_batch_10_3000_obs_20250101_20250113.json
+│   │   ├── data_observations_batch_11_5000_obs_20250101_20250121.json
+│   │   ├── data_observations_batch_12_7500_obs_20250101_20250201.json
+│   │   ├── data_observations_batch_13_10000_obs_20250101_20250211.json
+│   │   ├── data_observations_batch_14_20000_obs_20250101_20250325.json
+│   │   ├── data_observations_batch_15_30000_obs_20250101_20250505.json
+│   │   ├── data_observations_batch_16_50000_obs_20250101_20250728.json
+│   │   ├── data_observations_batch_2_10_obs_20250101_20250101.json
+│   │   ├── data_observations_batch_3_25_obs_20250101_20250101.json
+│   │   ├── data_observations_batch_4_50_obs_20250101_20250101.json
+│   │   ├── data_observations_batch_5_100_obs_20250101_20250101.json
+│   │   ├── data_observations_batch_6_250_obs_20250101_20250102.json
+│   │   ├── data_observations_batch_7_500_obs_20250101_20250103.json
+│   │   ├── data_observations_batch_8_1000_obs_20250101_20250105.json
+│   │   ├── data_observations_batch_9_2000_obs_20250101_20250109.json
 │   │   ├── setup
 │   │   │   ├── insert_example.py
 │   │   │   ├── setup_mongodb_data.py
@@ -37,35 +41,44 @@
 │   │   │   ├── __pycache__
 │   │   │   ├── data_utils.py
 │   ├── row_data
-│   │   ├── batch_1_100_obs.json
-│   │   ├── batch_10_20000_obs.json
-│   │   ├── batch_11_30000_obs.json
-│   │   ├── batch_12_50000_obs.json
-│   │   ├── batch_2_250_obs.json
-│   │   ├── batch_3_500_obs.json
-│   │   ├── batch_4_1000_obs.json
-│   │   ├── batch_5_2000_obs.json
-│   │   ├── batch_6_3000_obs.json
-│   │   ├── batch_7_5000_obs.json
-│   │   ├── batch_8_7500_obs.json
-│   │   ├── batch_9_10000_obs.json
+│   │   ├── batch_1_5_obs.json
+│   │   ├── batch_10_3000_obs.json
+│   │   ├── batch_11_5000_obs.json
+│   │   ├── batch_12_7500_obs.json
+│   │   ├── batch_13_10000_obs.json
+│   │   ├── batch_14_20000_obs.json
+│   │   ├── batch_15_30000_obs.json
+│   │   ├── batch_16_50000_obs.json
+│   │   ├── batch_2_10_obs.json
+│   │   ├── batch_3_25_obs.json
+│   │   ├── batch_4_50_obs.json
+│   │   ├── batch_5_100_obs.json
+│   │   ├── batch_6_250_obs.json
+│   │   ├── batch_7_500_obs.json
+│   │   ├── batch_8_1000_obs.json
+│   │   ├── batch_9_2000_obs.json
 │   │   ├── dataset_sizes.csv
+│   │   ├── dataset_sizes_mongodb_sizes.xlsx
 │   │   ├── measure_dataset_sizes.py
 │   ├── sample_data.json
 │   ├── temp_sample_data.json
 │   ├── timescaledb_data
-│   │   ├── data_observations_batch_1_100_obs_20250101_20250101.csv
-│   │   ├── data_observations_batch_10_20000_obs_20250101_20250325.csv
-│   │   ├── data_observations_batch_11_30000_obs_20250101_20250505.csv
-│   │   ├── data_observations_batch_12_50000_obs_20250101_20250728.csv
-│   │   ├── data_observations_batch_2_250_obs_20250101_20250102.csv
-│   │   ├── data_observations_batch_3_500_obs_20250101_20250103.csv
-│   │   ├── data_observations_batch_4_1000_obs_20250101_20250105.csv
-│   │   ├── data_observations_batch_5_2000_obs_20250101_20250109.csv
-│   │   ├── data_observations_batch_6_3000_obs_20250101_20250113.csv
-│   │   ├── data_observations_batch_7_5000_obs_20250101_20250121.csv
-│   │   ├── data_observations_batch_8_7500_obs_20250101_20250201.csv
-│   │   ├── data_observations_batch_9_10000_obs_20250101_20250211.csv
+│   │   ├── data_observations_batch_1_5_obs_20250101_20250101.csv
+│   │   ├── data_observations_batch_10_3000_obs_20250101_20250113.csv
+│   │   ├── data_observations_batch_11_5000_obs_20250101_20250121.csv
+│   │   ├── data_observations_batch_12_7500_obs_20250101_20250201.csv
+│   │   ├── data_observations_batch_13_10000_obs_20250101_20250211.csv
+│   │   ├── data_observations_batch_14_20000_obs_20250101_20250325.csv
+│   │   ├── data_observations_batch_15_30000_obs_20250101_20250505.csv
+│   │   ├── data_observations_batch_16_50000_obs_20250101_20250728.csv
+│   │   ├── data_observations_batch_2_10_obs_20250101_20250101.csv
+│   │   ├── data_observations_batch_3_25_obs_20250101_20250101.csv
+│   │   ├── data_observations_batch_4_50_obs_20250101_20250101.csv
+│   │   ├── data_observations_batch_5_100_obs_20250101_20250101.csv
+│   │   ├── data_observations_batch_6_250_obs_20250101_20250102.csv
+│   │   ├── data_observations_batch_7_500_obs_20250101_20250103.csv
+│   │   ├── data_observations_batch_8_1000_obs_20250101_20250105.csv
+│   │   ├── data_observations_batch_9_2000_obs_20250101_20250109.csv
 │   │   ├── setup
 │   │   │   ├── setup_timescaledb_data.py
 ├── dev_scripts
@@ -88,22 +101,25 @@
 │   ├── timescale_db.log
 ├── main.py
 ├── notebooks
-│   ├── analysis.ipynb
-│   ├── logs
-│   │   ├── benchmark_db_forwarder.log
-│   ├── mongodb_benchmark.ipynb
+│   ├── write
+│   │   ├── logs
+│   │   │   ├── benchmarkdb_logs.log
+│   │   ├── write_benchmark.ipynb
 ├── notes.txt
 ├── nrec.pem
 ├── README.md
 ├── requirements.txt
 ├── requirements-dev.txt
 ├── results
-│   ├── dummery
-│   ├── raw
 ├── src
 │   ├── benchmark
-│   │   ├── ingestion
-│   │   │   ├── mongodb_ingest_benchmark.py
+│   │   ├── driver_based_execution
+│   │   │   ├── read
+│   │   │   ├── write
+│   │   │   │   ├── mongodb
+│   │   │   │   │   ├── mongodb_write_benchmark.py
+│   │   │   │   ├── timecaledb
+│   │   │   │   │   ├── timescaledb_write_benchmark.py
 │   │   ├── read
 │   ├── common
 │   │   ├── __pycache__
@@ -145,6 +161,7 @@
 │   ├── validators
 │   │   ├── __pycache__
 │   │   ├── json_validator.py
+├── test.py
 ├── tests
 │   ├── configs
 │   │   ├── config-test-mgdb.yml
