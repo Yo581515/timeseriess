@@ -1,0 +1,251 @@
+time,node_source,node_source_id,latitude,longitude,sensor_source,sensor_source_id,parameter,value,unit,quality_codes
+2025-01-01 00:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,16.65,degrees_C,0
+2025-01-01 00:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.182,S m-1,0
+2025-01-01 00:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,13.23,PSU,0
+2025-01-01 00:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,285.3,umol L-1,0
+2025-01-01 00:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,185.12,NTU,0
+2025-01-01 00:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,12.79,degrees_C,0
+2025-01-01 00:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,3.086,S m-1,0
+2025-01-01 00:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,35.24,PSU,0
+2025-01-01 00:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,60.0,umol L-1,0
+2025-01-01 00:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,5.83,NTU,0
+2025-01-01 01:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,12.69,degrees_C,0
+2025-01-01 01:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.58,S m-1,0
+2025-01-01 01:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,21.79,PSU,0
+2025-01-01 01:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,142.1,umol L-1,0
+2025-01-01 01:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,48.68,NTU,0
+2025-01-01 01:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,6.92,degrees_C,0
+2025-01-01 01:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,3.129,S m-1,0
+2025-01-01 01:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,11.89,PSU,0
+2025-01-01 01:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,402.1,umol L-1,0
+2025-01-01 01:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,187.75,NTU,0
+2025-01-01 02:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,8.1,degrees_C,0
+2025-01-01 02:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.145,S m-1,0
+2025-01-01 02:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,20.0,PSU,0
+2025-01-01 02:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,326.2,umol L-1,0
+2025-01-01 02:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,183.16,NTU,0
+2025-01-01 02:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,2.84,degrees_C,0
+2025-01-01 02:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.75,S m-1,0
+2025-01-01 02:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,35.54,PSU,0
+2025-01-01 02:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,441.1,umol L-1,0
+2025-01-01 02:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,38.99,NTU,0
+2025-01-01 03:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,18.46,degrees_C,0
+2025-01-01 03:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.43,S m-1,0
+2025-01-01 03:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,39.27,PSU,0
+2025-01-01 03:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,91.2,umol L-1,0
+2025-01-01 03:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,96.57,NTU,0
+2025-01-01 03:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,19.17,degrees_C,0
+2025-01-01 03:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,3.001,S m-1,0
+2025-01-01 03:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,24.0,PSU,0
+2025-01-01 03:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,406.7,umol L-1,0
+2025-01-01 03:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,121.44,NTU,0
+2025-01-01 04:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,-1.09,degrees_C,0
+2025-01-01 04:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.333,S m-1,0
+2025-01-01 04:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,12.76,PSU,0
+2025-01-01 04:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,347.2,umol L-1,0
+2025-01-01 04:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,129.23,NTU,0
+2025-01-01 04:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,8.07,degrees_C,0
+2025-01-01 04:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.501,S m-1,0
+2025-01-01 04:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,32.8,PSU,0
+2025-01-01 04:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,58.7,umol L-1,0
+2025-01-01 04:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,18.31,NTU,0
+2025-01-01 05:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,-1.56,degrees_C,0
+2025-01-01 05:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,3.231,S m-1,0
+2025-01-01 05:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,32.18,PSU,0
+2025-01-01 05:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,370.4,umol L-1,0
+2025-01-01 05:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,27.46,NTU,0
+2025-01-01 05:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,16.85,degrees_C,0
+2025-01-01 05:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.402,S m-1,0
+2025-01-01 05:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,29.45,PSU,0
+2025-01-01 05:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,188.2,umol L-1,0
+2025-01-01 05:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,68.55,NTU,0
+2025-01-01 06:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,7.9,degrees_C,0
+2025-01-01 06:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.972,S m-1,0
+2025-01-01 06:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,11.35,PSU,0
+2025-01-01 06:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,315.6,umol L-1,0
+2025-01-01 06:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,8.14,NTU,0
+2025-01-01 06:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,4.07,degrees_C,0
+2025-01-01 06:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.186,S m-1,0
+2025-01-01 06:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,39.53,PSU,0
+2025-01-01 06:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,275.3,umol L-1,0
+2025-01-01 06:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,173.69,NTU,0
+2025-01-01 07:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,0.07,degrees_C,0
+2025-01-01 07:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.369,S m-1,0
+2025-01-01 07:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,28.19,PSU,0
+2025-01-01 07:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,390.6,umol L-1,0
+2025-01-01 07:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,107.2,NTU,0
+2025-01-01 07:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,15.22,degrees_C,0
+2025-01-01 07:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.255,S m-1,0
+2025-01-01 07:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,11.01,PSU,0
+2025-01-01 07:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,99.4,umol L-1,0
+2025-01-01 07:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,3.43,NTU,0
+2025-01-01 08:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,1.67,degrees_C,0
+2025-01-01 08:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.91,S m-1,0
+2025-01-01 08:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,19.76,PSU,0
+2025-01-01 08:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,171.7,umol L-1,0
+2025-01-01 08:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,127.59,NTU,0
+2025-01-01 08:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,15.31,degrees_C,0
+2025-01-01 08:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.483,S m-1,0
+2025-01-01 08:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,32.47,PSU,0
+2025-01-01 08:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,159.3,umol L-1,0
+2025-01-01 08:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,80.63,NTU,0
+2025-01-01 09:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,4.36,degrees_C,0
+2025-01-01 09:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.652,S m-1,0
+2025-01-01 09:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,21.34,PSU,0
+2025-01-01 09:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,264.4,umol L-1,0
+2025-01-01 09:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,167.47,NTU,0
+2025-01-01 09:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,15.86,degrees_C,0
+2025-01-01 09:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.584,S m-1,0
+2025-01-01 09:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,13.85,PSU,0
+2025-01-01 09:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,287.2,umol L-1,0
+2025-01-01 09:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,2.9,NTU,0
+2025-01-01 10:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,1.33,degrees_C,0
+2025-01-01 10:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.164,S m-1,0
+2025-01-01 10:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,19.62,PSU,0
+2025-01-01 10:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,98.1,umol L-1,0
+2025-01-01 10:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,120.62,NTU,0
+2025-01-01 10:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,14.09,degrees_C,0
+2025-01-01 10:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.281,S m-1,0
+2025-01-01 10:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,27.76,PSU,0
+2025-01-01 10:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,410.0,umol L-1,0
+2025-01-01 10:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,59.08,NTU,0
+2025-01-01 11:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,10.98,degrees_C,0
+2025-01-01 11:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.186,S m-1,0
+2025-01-01 11:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,19.92,PSU,0
+2025-01-01 11:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,277.2,umol L-1,0
+2025-01-01 11:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,36.93,NTU,0
+2025-01-01 11:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,17.79,degrees_C,0
+2025-01-01 11:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.384,S m-1,0
+2025-01-01 11:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,28.95,PSU,0
+2025-01-01 11:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,403.4,umol L-1,0
+2025-01-01 11:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,34.42,NTU,0
+2025-01-01 12:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,5.53,degrees_C,0
+2025-01-01 12:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.676,S m-1,0
+2025-01-01 12:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,18.92,PSU,0
+2025-01-01 12:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,447.7,umol L-1,0
+2025-01-01 12:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,110.82,NTU,0
+2025-01-01 12:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,6.8,degrees_C,0
+2025-01-01 12:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.684,S m-1,0
+2025-01-01 12:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,25.43,PSU,0
+2025-01-01 12:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,147.2,umol L-1,0
+2025-01-01 12:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,19.17,NTU,0
+2025-01-01 13:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,0.13,degrees_C,0
+2025-01-01 13:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.166,S m-1,0
+2025-01-01 13:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,34.26,PSU,0
+2025-01-01 13:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,266.6,umol L-1,0
+2025-01-01 13:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,183.96,NTU,0
+2025-01-01 13:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,15.35,degrees_C,0
+2025-01-01 13:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.473,S m-1,0
+2025-01-01 13:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,33.17,PSU,0
+2025-01-01 13:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,207.0,umol L-1,0
+2025-01-01 13:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,69.82,NTU,0
+2025-01-01 14:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,-1.37,degrees_C,0
+2025-01-01 14:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.28,S m-1,0
+2025-01-01 14:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,33.65,PSU,0
+2025-01-01 14:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,424.3,umol L-1,0
+2025-01-01 14:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,22.14,NTU,0
+2025-01-01 14:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,16.58,degrees_C,0
+2025-01-01 14:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.843,S m-1,0
+2025-01-01 14:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,21.38,PSU,0
+2025-01-01 14:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,303.9,umol L-1,0
+2025-01-01 14:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,69.5,NTU,0
+2025-01-01 15:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,-0.25,degrees_C,0
+2025-01-01 15:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.184,S m-1,0
+2025-01-01 15:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,15.2,PSU,0
+2025-01-01 15:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,398.2,umol L-1,0
+2025-01-01 15:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,28.72,NTU,0
+2025-01-01 15:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,8.3,degrees_C,0
+2025-01-01 15:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,3.912,S m-1,0
+2025-01-01 15:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,28.22,PSU,0
+2025-01-01 15:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,295.2,umol L-1,0
+2025-01-01 15:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,168.54,NTU,0
+2025-01-01 16:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,16.05,degrees_C,0
+2025-01-01 16:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.961,S m-1,0
+2025-01-01 16:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,32.95,PSU,0
+2025-01-01 16:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,295.5,umol L-1,0
+2025-01-01 16:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,98.71,NTU,0
+2025-01-01 16:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,16.13,degrees_C,0
+2025-01-01 16:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,3.248,S m-1,0
+2025-01-01 16:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,20.33,PSU,0
+2025-01-01 16:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,232.1,umol L-1,0
+2025-01-01 16:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,20.67,NTU,0
+2025-01-01 17:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,5.55,degrees_C,0
+2025-01-01 17:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.45,S m-1,0
+2025-01-01 17:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,37.37,PSU,0
+2025-01-01 17:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,320.5,umol L-1,0
+2025-01-01 17:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,12.25,NTU,0
+2025-01-01 17:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,2.31,degrees_C,0
+2025-01-01 17:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.847,S m-1,0
+2025-01-01 17:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,25.86,PSU,0
+2025-01-01 17:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,196.3,umol L-1,0
+2025-01-01 17:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,121.87,NTU,0
+2025-01-01 18:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,18.29,degrees_C,0
+2025-01-01 18:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.016,S m-1,0
+2025-01-01 18:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,17.5,PSU,0
+2025-01-01 18:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,389.2,umol L-1,0
+2025-01-01 18:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,139.23,NTU,0
+2025-01-01 18:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,6.68,degrees_C,0
+2025-01-01 18:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,3.096,S m-1,0
+2025-01-01 18:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,34.29,PSU,0
+2025-01-01 18:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,312.5,umol L-1,0
+2025-01-01 18:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,25.84,NTU,0
+2025-01-01 19:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,13.88,degrees_C,0
+2025-01-01 19:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.609,S m-1,0
+2025-01-01 19:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,15.54,PSU,0
+2025-01-01 19:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,246.0,umol L-1,0
+2025-01-01 19:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,38.87,NTU,0
+2025-01-01 19:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,16.22,degrees_C,0
+2025-01-01 19:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.888,S m-1,0
+2025-01-01 19:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,22.35,PSU,0
+2025-01-01 19:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,260.5,umol L-1,0
+2025-01-01 19:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,110.9,NTU,0
+2025-01-01 20:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,-0.95,degrees_C,0
+2025-01-01 20:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,3.881,S m-1,0
+2025-01-01 20:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,16.18,PSU,0
+2025-01-01 20:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,445.3,umol L-1,0
+2025-01-01 20:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,6.33,NTU,0
+2025-01-01 20:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,18.34,degrees_C,0
+2025-01-01 20:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,3.351,S m-1,0
+2025-01-01 20:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,20.17,PSU,0
+2025-01-01 20:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,98.4,umol L-1,0
+2025-01-01 20:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,59.43,NTU,0
+2025-01-01 21:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,18.46,degrees_C,0
+2025-01-01 21:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.674,S m-1,0
+2025-01-01 21:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,23.5,PSU,0
+2025-01-01 21:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,143.1,umol L-1,0
+2025-01-01 21:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,20.42,NTU,0
+2025-01-01 21:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,10.11,degrees_C,0
+2025-01-01 21:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.178,S m-1,0
+2025-01-01 21:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,29.17,PSU,0
+2025-01-01 21:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,430.6,umol L-1,0
+2025-01-01 21:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,115.49,NTU,0
+2025-01-01 22:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,1.53,degrees_C,0
+2025-01-01 22:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.263,S m-1,0
+2025-01-01 22:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,14.41,PSU,0
+2025-01-01 22:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,50.1,umol L-1,0
+2025-01-01 22:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,183.03,NTU,0
+2025-01-01 22:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,7.43,degrees_C,0
+2025-01-01 22:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,3.994,S m-1,0
+2025-01-01 22:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,35.07,PSU,0
+2025-01-01 22:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,177.4,umol L-1,0
+2025-01-01 22:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,149.22,NTU,0
+2025-01-01 23:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,2.33,degrees_C,0
+2025-01-01 23:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,2.109,S m-1,0
+2025-01-01 23:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,28.08,PSU,0
+2025-01-01 23:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,104.9,umol L-1,0
+2025-01-01 23:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,164.46,NTU,0
+2025-01-01 23:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,11.18,degrees_C,0
+2025-01-01 23:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.71,S m-1,0
+2025-01-01 23:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,23.19,PSU,0
+2025-01-01 23:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,261.8,umol L-1,0
+2025-01-01 23:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,188.21,NTU,0
+2025-01-02 00:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,13.67,degrees_C,0
+2025-01-02 00:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,5.342,S m-1,0
+2025-01-02 00:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,27.97,PSU,0
+2025-01-02 00:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,168.8,umol L-1,0
+2025-01-02 00:00:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,151.95,NTU,0
+2025-01-02 00:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Temperature PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TEMPERATURE,sea_water_temperature,15.56,degrees_C,0
+2025-01-02 00:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Conductivity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_CONDUCTIVITY,sea_water_electrical_conductivity,4.621,S m-1,0
+2025-01-02 00:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Salinity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_SALINITY,sea_water_salinity,25.11,PSU,0
+2025-01-02 00:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Oxygen PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_OXYGEN,dissolved_oxygen,424.6,umol L-1,0
+2025-01-02 00:30:00+00:00,Node 1,sfi_smart_ocean;demo;d1;1,60.090717,5.263733,Aanderaa Turbidity PROBE,sfi_smart_ocean;demo;d1;1;AANDERAA_TURBIDITY,turbidity,162.04,NTU,0
