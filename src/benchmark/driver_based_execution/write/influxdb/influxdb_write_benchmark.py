@@ -7,9 +7,9 @@ from datetime import datetime, timezone
 
 from src.common.config import load_config
 from src.common.logger import get_logger
-from src.databases.timescaledb.config import get_timescaledb_config
-from src.databases.timescaledb.timescaledb_repo import TimescaleDBRepo
-from src.databases.timescaledb.models.observation import Observation
+from src.databases.influxdb.config import get_influxdb_config
+from src.databases.influxdb.influx_repo import InfluxRepo
+from src.databases.influxdb.models.observation import Observation
 from src.databases.benchmark_db.config import get_postgres_config
 from src.databases.benchmark_db.benchmark_db import BenchmarkDB
 from src.databases.benchmark_db.models import IngestionBenchmarkResult
@@ -20,7 +20,7 @@ for i in range(50):
 print(lines)
 
 
-TIMESCALEDB_DATA_DIR = Path("data/timescaledb_data")
+INFLUXDB_DATA_DIR = Path("data/influxdb_data")
 DATASET_SIZES_CSV = Path("data/row_data/dataset_sizes.csv")
 
 
@@ -49,7 +49,7 @@ def load_dataset_sizes(csv_path: Path) -> dict[int, DatasetMeta]:
     }
 
 
-def load_timescaledb_files(data_dir: Path) -> list[tuple[int, list[Observation]]]:
+def load_influxdb_files(data_dir: Path) -> list[tuple[int, list[Observation]]]:
     files = sorted(
         data_dir.glob("*.csv"),
         key=lambda f: int(f.stem.split("_")[3])
@@ -79,29 +79,29 @@ def load_timescaledb_files(data_dir: Path) -> list[tuple[int, list[Observation]]
 
 
 # TODO 1: LOAD DATA
-# - get all TimescaleDB data files from data/timescaledb_data/ (csv files)
+# - get all InfluxDB data files from data/influxdb_data/ (csv files)
 # - Parse each csv into a list of Observation objects
 # - Load dataset metadata from dataset_sizes.csv (data_size_bytes, kb, mb, record_count)
 
 sizes = load_dataset_sizes(DATASET_SIZES_CSV)
-files = load_timescaledb_files(TIMESCALEDB_DATA_DIR)
+files = load_influxdb_files(INFLUXDB_DATA_DIR)
 
 print(f"Loaded {len(files)} dataset files")
 print(f"Loaded {len(sizes)} dataset metadata entries")
 print(lines)
 
 
-# TODO 2: SETUP TIMESCALEDB CLIENT
-# - Load config from configs/config-timescaledb.yml
-# - Instantiate TimescaleDBRepo
+# TODO 2: SETUP INFLUXDB CLIENT
+# - Load config from configs/config-influxdb.yml
+# - Instantiate InfluxRepo
 # - Ping to verify connection
 
-timescale_config = load_config("./configs/config-timescaledb.yml")
-logger = get_logger("timescaledb_write_benchmark", timescale_config["general"]["log_file"])
-timescaledb_repo = TimescaleDBRepo(get_timescaledb_config(timescale_config["database"]), logger)
+influxdb_config = load_config("./configs/config-influxdb.yml")
+logger = get_logger("influxdb_write_benchmark", influxdb_config["general"]["log_file"])
+influxdb_repo = InfluxRepo(get_influxdb_config(influxdb_config["database"]), logger)
 
-if timescaledb_repo.ping():
-    print("TimescaleDB connection successful.")
+if influxdb_repo.ping():
+    print("InfluxDB connection successful.")
 print(lines)
 
 
@@ -131,10 +131,9 @@ print(lines)
 # TODO 4: RUN INGESTION BENCHMARK
 # For each file (batch_1 → batch_len(files)):
 #   - Get matching metadata from dataset_sizes (batch_id, record_count, bytes, kb, mb)
-#   - Convert insert_batch_size (100 obs) into chunk_size
 #   - For run_number in range(1, number_of_full_runs + 1):
 #       - Warmup: insert a few chunks to warm up connection and caches
-#       - Clear the observations table (fresh start for each run)
+#       - Clear the observations measurement (fresh start for each run)
 #       - Start timer (time.perf_counter_ns())
 #       - Loop: chunk observations into chunk_size groups, call insert_many() per chunk
 #         keeping count of insert_operation_count
@@ -148,13 +147,12 @@ print(lines)
 
 BATCH_SIZE = 100
 
-# 25 tar 33 minutter
+# 25 tok 49 minutter
 number_of_full_runs = 25
 
 try:
-    
     st = time.perf_counter()
-    bm_db.connect()
+
     for i in range(number_of_full_runs):
         for batch_id, observations in files:
             print("batch_id is ", batch_id)
@@ -172,9 +170,10 @@ try:
             # warmup
             try:
                 warmup_chunk = observations[:chunk_size]
-                timescaledb_repo.insert_many(warmup_chunk)
-                timescaledb_repo.insert_many(warmup_chunk)
-                timescaledb_repo.insert_many(warmup_chunk)
+                influxdb_repo.insert_many(warmup_chunk)
+                influxdb_repo.insert_many(warmup_chunk)
+                influxdb_repo.insert_many(warmup_chunk)
+                influxdb_repo.delete_all()
             except Exception as e:
                 logger.error("Warmup failed: %s", e)
                 raise Exception("Warmup failed") from e
@@ -186,7 +185,7 @@ try:
             for run_num in range(1, num_iterations + 1):
                 obs_seg = observations[start_batch_index:end_batch_index]
                 try:
-                    elapsed_time_ns = timescaledb_repo.insert_many(obs_seg, page_size=BATCH_SIZE)
+                    elapsed_time_ns = influxdb_repo.insert_many(obs_seg)
                     start_batch_index = end_batch_index
                     end_batch_index = int(end_batch_index + chunk_size if end_batch_index + chunk_size <= obs_len else obs_len)
                     total_insert_time_ns += elapsed_time_ns
@@ -196,9 +195,9 @@ try:
                     raise Exception("Insert operation failed") from e
 
             try:
-                timescaledb_repo.delete_all()
+                influxdb_repo.delete_all()
             except Exception as e:
-                logger.error("Failed to clear observations table: %s", e)
+                logger.error("Failed to clear observations: %s", e)
                 raise Exception("Clear failed") from e
 
             print(f"Total insert time for batch {batch_id}: {total_insert_time_ns} ns or {total_insert_time_ns / 1_000_000_000} seconds")
@@ -217,18 +216,16 @@ try:
 
                 result = IngestionBenchmarkResult(
                     benchmark_name="ingestion.insert_many.fixed_batch",
-                    database_system="timescaledb",
-                    database_version="latest-pg17",
+                    database_system="influxdb",
+                    database_version="2.x",
                     database_location="container",
                     insert_batch_size=BATCH_SIZE,
-                    
                     batch_id=batch_id,
                     dataset_name=dataset_meta.dataset,
                     record_count=dataset_meta.record_count,
                     data_size_bytes=dataset_meta.data_size_bytes,
                     data_size_kb=dataset_meta.data_size_kb,
                     data_size_mb=dataset_meta.data_size_mb,
-                    
                     elapsed_time_seconds=total_insert_time_seconds,
                     elapsed_time_ns=total_insert_time_ns,
                     throughput_obs_per_sec=throughput_obs_per_sec,
@@ -238,13 +235,14 @@ try:
                     insert_operation_count=num_iterations,
                 )
 
-                
+                bm_db.connect()
                 result = bm_db.insert_result(result)
                 print("Inserted IngestionBenchmarkResult:", result.id)
                 print()
             except Exception as e:
                 logger.error("Failed to save benchmark result: %s", e)
-                raise Exception("Save benchmark result failed") from e
+            finally:
+                bm_db.disconnect()
 
     er = time.perf_counter()
     tt = er - st
@@ -252,9 +250,9 @@ try:
     print(f"Total time for inserting {number_of_full_runs} full data runs: {tt} seconds or {tt/60} minutes")
 
 # TODO 6: TEARDOWN
-# - Disconnect TimescaleDBRepo
+# - Disconnect InfluxRepo
 # - Disconnect BenchmarkDB
 
 finally:
-    timescaledb_repo.close()
+    influxdb_repo.close()
     bm_db.disconnect()

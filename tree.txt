@@ -15,6 +15,24 @@
 ├── data
 │   ├── gen_data.txt
 │   ├── influxdb_data
+│   │   ├── data_observations_batch_1_5_obs_20250101_20250101.csv
+│   │   ├── data_observations_batch_10_3000_obs_20250101_20250113.csv
+│   │   ├── data_observations_batch_11_5000_obs_20250101_20250121.csv
+│   │   ├── data_observations_batch_12_7500_obs_20250101_20250201.csv
+│   │   ├── data_observations_batch_13_10000_obs_20250101_20250211.csv
+│   │   ├── data_observations_batch_14_20000_obs_20250101_20250325.csv
+│   │   ├── data_observations_batch_15_30000_obs_20250101_20250505.csv
+│   │   ├── data_observations_batch_16_50000_obs_20250101_20250728.csv
+│   │   ├── data_observations_batch_2_10_obs_20250101_20250101.csv
+│   │   ├── data_observations_batch_3_25_obs_20250101_20250101.csv
+│   │   ├── data_observations_batch_4_50_obs_20250101_20250101.csv
+│   │   ├── data_observations_batch_5_100_obs_20250101_20250101.csv
+│   │   ├── data_observations_batch_6_250_obs_20250101_20250102.csv
+│   │   ├── data_observations_batch_7_500_obs_20250101_20250103.csv
+│   │   ├── data_observations_batch_8_1000_obs_20250101_20250105.csv
+│   │   ├── data_observations_batch_9_2000_obs_20250101_20250109.csv
+│   │   ├── setup
+│   │   │   ├── setup_influxdb_data.py
 │   ├── mongodb_data
 │   │   ├── data_observations_batch_1_5_obs_20250101_20250101.json
 │   │   ├── data_observations_batch_10_3000_obs_20250101_20250113.json
@@ -102,25 +120,31 @@
 ├── main.py
 ├── notebooks
 │   ├── write
-│   │   ├── logs
-│   │   │   ├── benchmarkdb_logs.log
-│   │   ├── write_benchmark.ipynb
+│   │   ├── driver_based_execution
+│   │   │   ├── logs
+│   │   │   │   ├── benchmarkdb_logs.log
+│   │   │   ├── write_benchmark.ipynb
+│   │   ├── native_based_execution
 ├── notes.txt
 ├── nrec.pem
 ├── README.md
 ├── requirements.txt
 ├── requirements-dev.txt
 ├── results
+│   ├── driver_based_execution
+│   ├── native_based_execution
 ├── src
 │   ├── benchmark
 │   │   ├── driver_based_execution
 │   │   │   ├── read
 │   │   │   ├── write
+│   │   │   │   ├── influxdb
+│   │   │   │   │   ├── influxdb_write_benchmark.py
 │   │   │   │   ├── mongodb
 │   │   │   │   │   ├── mongodb_write_benchmark.py
 │   │   │   │   ├── timecaledb
 │   │   │   │   │   ├── timescaledb_write_benchmark.py
-│   │   ├── read
+│   │   ├── native_based_execution
 │   ├── common
 │   │   ├── __pycache__
 │   │   ├── config.py
