@@ -3,7 +3,7 @@ https://json-generator.com/#
 
 
 [
-  "{{repeat(4000)}}",
+  "{{repeat(1)}}",
   {
     "source": "Node 1",
     "source_id": "sfi_smart_ocean;demo;d1;1",
