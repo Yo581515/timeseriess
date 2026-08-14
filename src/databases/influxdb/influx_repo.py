@@ -1,6 +1,6 @@
 import time
 import logging
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 from influxdb_client import Point, WritePrecision
 
@@ -137,7 +137,233 @@ class InfluxRepo(InfluxDB_Client):
         except Exception as e:
             self.logger.error(f"Error deleting observations: {e}")
             raise Exception(f"Delete failed: {e}")
+        
+    def query_latest(self, parameter: str) -> tuple[Observation | None, int]:
+        query = f"""
+            from(bucket: "{self.bucket}")
+            |> range(start: -30y)
+            |> filter(fn: (r) => r._measurement == "{MEASUREMENT}")
+            |> filter(fn: (r) => r.parameter == "{parameter}")
+            |> last()
+            |> pivot(
+                rowKey: ["_time", "node_source_id", "sensor_source_id"],
+                columnKey: ["_field"],
+                valueColumn: "_value"
+            )
+        """
+        t0 = time.perf_counter_ns()
+        tables = self.query_api().query(query, org=self.org)
+        elapsed_ns = time.perf_counter_ns() - t0
 
+        for table in tables:
+            for record in table.records:
+                v = record.values
+                qc_raw = v.get("quality_codes", "[]")
+                qcs = [int(q) for q in qc_raw.strip("[]").split(",") if q]
+                obs = Observation(
+                    time=v.get("_time"),
+                    node_source=v.get("node_source"),
+                    node_source_id=v.get("node_source_id"),
+                    latitude=float(v.get("latitude", 0)),
+                    longitude=float(v.get("longitude", 0)),
+                    sensor_source=v.get("sensor_source"),
+                    sensor_source_id=v.get("sensor_source_id"),
+                    parameter=v.get("parameter"),
+                    value=float(v.get("value", 0)),
+                    unit=v.get("unit", ""),
+                    quality_codes=qcs,
+                )
+                return obs, elapsed_ns
+        return None, elapsed_ns
+    
+    
+    def query_range(
+        self,
+        parameter: str,
+        start_time: datetime,
+        end_time: datetime,
+    ) -> tuple[list[Observation], int]:
+        try:
+            start = start_time.astimezone(timezone.utc).isoformat()
+            stop = end_time.astimezone(timezone.utc).isoformat()
+
+            query = f"""
+                from(bucket: "{self.bucket}")
+                |> range(start: time(v: "{start}"), stop: time(v: "{stop}"))
+                |> filter(fn: (r) => r._measurement == "{MEASUREMENT}")
+                |> filter(fn: (r) => r.parameter == "{parameter}")
+                |> pivot(
+                    rowKey: ["_time", "node_source_id", "sensor_source_id"],
+                    columnKey: ["_field"],
+                    valueColumn: "_value"
+                )
+            """
+
+            t0 = time.perf_counter_ns()
+            tables = self.query_api().query(query, org=self.org)
+            elapsed_ns = time.perf_counter_ns() - t0
+
+            observations = []
+            for table in tables:
+                for record in table.records:
+                    v = record.values
+                    qc_raw = v.get("quality_codes", "[]")
+                    qcs = [int(q) for q in qc_raw.strip("[]").split(",") if q]
+                    observations.append(Observation(
+                        time=v.get("_time"),
+                        node_source=v.get("node_source"),
+                        node_source_id=v.get("node_source_id"),
+                        latitude=float(v.get("latitude", 0)),
+                        longitude=float(v.get("longitude", 0)),
+                        sensor_source=v.get("sensor_source"),
+                        sensor_source_id=v.get("sensor_source_id"),
+                        parameter=v.get("parameter"),
+                        value=float(v.get("value", 0)),
+                        unit=v.get("unit", ""),
+                        quality_codes=qcs,
+                    ))
+            return observations, elapsed_ns
+
+        except Exception as e:
+            self.logger.error(f"Error querying observations: {e}")
+            return [], 0
+        
+    def query_cardinality(
+        self,
+        start_time: datetime,
+        end_time: datetime,
+        parameter: str | None = None,
+        node_source_id: str | None = None,
+    ) -> tuple[list[Observation], int]:
+        try:
+            start = start_time.astimezone(timezone.utc).isoformat()
+            stop = end_time.astimezone(timezone.utc).isoformat()
+
+            filters = f'|> filter(fn: (r) => r._measurement == "{MEASUREMENT}")\n'
+            if parameter is not None:
+                filters += f'            |> filter(fn: (r) => r.parameter == "{parameter}")\n'
+            if node_source_id is not None:
+                filters += f'            |> filter(fn: (r) => r.node_source_id == "{node_source_id}")\n'
+
+            query = f"""
+                from(bucket: "{self.bucket}")
+                |> range(start: time(v: "{start}"), stop: time(v: "{stop}"))
+                {filters}
+                |> pivot(
+                    rowKey: ["_time", "node_source_id", "sensor_source_id"],
+                    columnKey: ["_field"],
+                    valueColumn: "_value"
+                )
+            """
+
+            t0 = time.perf_counter_ns()
+            tables = self.query_api().query(query, org=self.org)
+            elapsed_ns = time.perf_counter_ns() - t0
+
+            observations = []
+            for table in tables:
+                for record in table.records:
+                    v = record.values
+                    qc_raw = v.get("quality_codes", "[]")
+                    qcs = [int(q) for q in qc_raw.strip("[]").split(",") if q]
+                    observations.append(Observation(
+                        time=v.get("_time"),
+                        node_source=v.get("node_source"),
+                        node_source_id=v.get("node_source_id"),
+                        latitude=float(v.get("latitude", 0)),
+                        longitude=float(v.get("longitude", 0)),
+                        sensor_source=v.get("sensor_source"),
+                        sensor_source_id=v.get("sensor_source_id"),
+                        parameter=v.get("parameter"),
+                        value=float(v.get("value", 0)),
+                        unit=v.get("unit", ""),
+                        quality_codes=qcs,
+                    ))
+            return observations, elapsed_ns
+
+        except Exception as e:
+            self.logger.error(f"Error querying cardinality: {e}")
+            return [], 0
+        
+    def query_aggregate(
+        self,
+        parameter: str,
+        start_time: datetime,
+        end_time: datetime,
+    ) -> tuple[dict, int]:
+        start = start_time.astimezone(timezone.utc).isoformat()
+        stop = (end_time.astimezone(timezone.utc) + timedelta(seconds=5)).isoformat()
+
+        query = f"""
+            data = from(bucket: "{self.bucket}")
+                |> range(start: time(v: "{start}"), stop: time(v: "{stop}"))
+                |> filter(fn: (r) => r._measurement == "{MEASUREMENT}")
+                |> filter(fn: (r) => r.parameter == "{parameter}")
+                |> filter(fn: (r) => r._field == "value")
+                |> group(columns: ["_field"])
+
+            avg_result = data |> mean() |> set(key: "agg", value: "avg")
+            min_result = data |> min() |> set(key: "agg", value: "min")
+            max_result = data |> max() |> set(key: "agg", value: "max")
+            count_result = data |> count() |> toFloat() |> set(key: "agg", value: "count")
+
+            union(tables: [avg_result, min_result, max_result, count_result])
+        """
+
+        t0 = time.perf_counter_ns()
+        tables = self.query_api().query(query, org=self.org)
+        elapsed_ns = time.perf_counter_ns() - t0
+
+        result = {"avg_value": None, "min_value": None, "max_value": None, "row_count": None}
+        for table in tables:
+            for record in table.records:
+                agg_type = record.values.get("agg")
+                value = record.get_value()
+                if agg_type == "avg":
+                    result["avg_value"] = float(value) if value is not None else None
+                elif agg_type == "min":
+                    result["min_value"] = float(value) if value is not None else None
+                elif agg_type == "max":
+                    result["max_value"] = float(value) if value is not None else None
+                elif agg_type == "count":
+                    result["row_count"] = int(value) if value is not None else None
+
+        return result, elapsed_ns
+    
+    def query_bucketed(
+        self,
+        parameter: str,
+        start_time: datetime,
+        end_time: datetime,
+        bucket_interval: str,
+    ) -> tuple[list[dict], int]:
+        from datetime import timedelta
+        start = start_time.astimezone(timezone.utc).isoformat()
+        stop = (end_time.astimezone(timezone.utc) + timedelta(microseconds=1)).isoformat()
+
+        query = f"""
+            from(bucket: "{self.bucket}")
+                |> range(start: time(v: "{start}"), stop: time(v: "{stop}"))
+                |> filter(fn: (r) => r._measurement == "{MEASUREMENT}")
+                |> filter(fn: (r) => r.parameter == "{parameter}")
+                |> filter(fn: (r) => r._field == "value")
+                |> group(columns: ["_field"])
+                |> aggregateWindow(every: {bucket_interval}, fn: mean, createEmpty: false)
+        """
+
+        t0 = time.perf_counter_ns()
+        tables = self.query_api().query(query, org=self.org)
+        elapsed_ns = time.perf_counter_ns() - t0
+
+        buckets = []
+        for table in tables:
+            for record in table.records:
+                buckets.append({
+                    "bucket_time": record.get_time(),
+                    "avg_value": float(record.get_value()) if record.get_value() is not None else None,
+                    "row_count": None,  # aggregateWindow doesn't return count alongside mean directly
+                })
+        return buckets, elapsed_ns
 
 if __name__ == "__main__":
     from datetime import timedelta

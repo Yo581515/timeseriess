@@ -1,0 +1,23 @@
+database:
+  MONGODB_USER: "{{ env_var('DISKTEST_MONGODB_USER')}}"
+  MONGODB_PASSWORD: "{{ env_var('DISKTEST_MONGODB_PASSWORD')}}"
+
+  
+
+  # localhost and container connection details
+  MONGODB_HOST: "{{ env_var('DISKTEST_MONGODB_HOST')}}"
+  MONGODB_PORT: "{{ env_var('DISKTEST_MONGODB_PORT')}}"
+
+  MONGODB_DATABASE_NAME: "{{ env_var('DISKTEST_MONGODB_TIMESERIES_DATABASE_NAME')}}"
+  MONGODB_COLLECTION_NAME: "{{ env_var('DISKTEST_MONGODB_TIMESERIES_COLLECTION_NAME')}}"
+
+  # MongoDB Atlas cluster
+  MONGODB_CLUSTER: "{{ env_var('MONGODB_CLUSTER')}}"
+  
+  MONGODB_MODE: "{{ env_var('MONGODB_MODE')}}"
+
+general:
+  row_data_file: "./data/sample_data.json"
+  mongodb_data_file: "./data/mongodb_data/data_observations_batch_1_100_obs_20250101_20250101.json"
+  mongodb_data_folder_path: "./data/mongodb_data/"
+  log_file: "./logs/disktest_mongodb_logs.log"

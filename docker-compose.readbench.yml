@@ -1,0 +1,61 @@
+services:
+
+  read_timescaledb:
+    image: timescale/timescaledb:latest-pg17
+    environment:
+      POSTGRES_USER: ${READBENCH_TIMESCALEDB_USER}
+      POSTGRES_PASSWORD: ${READBENCH_TIMESCALEDB_PASSWORD}
+      POSTGRES_DB: ${READBENCH_TIMESCALEDB_DATABASE}
+    ports:
+      - "${READBENCH_TIMESCALEDB_PORT}:5432"
+    volumes:
+      - read_timescale_data:/var/lib/postgresql/data
+      - ./init-timescaledb-read:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h localhost -U ${READBENCH_TIMESCALEDB_USER} -d ${READBENCH_TIMESCALEDB_DATABASE}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  read_mongodb:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${READBENCH_MONGODB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${READBENCH_MONGODB_PASSWORD}
+    ports:
+      - "${READBENCH_MONGODB_PORT}:27017"
+    volumes:
+      - read_mongo_data:/data/db
+      - ./init-mongo-read:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  read_influxdb:
+    image: influxdb:2.7
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: ${READBENCH_INFLUXDB_USERNAME}
+      DOCKER_INFLUXDB_INIT_PASSWORD: ${READBENCH_INFLUXDB_PASSWORD}
+      DOCKER_INFLUXDB_INIT_ORG: ${READBENCH_INFLUXDB_ORG}
+      DOCKER_INFLUXDB_INIT_BUCKET: ${READBENCH_INFLUXDB_BUCKET}
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${READBENCH_INFLUXDB_TOKEN}
+    ports:
+      - "${READBENCH_INFLUXDB_PORT}:8086"
+    volumes:
+      - read_influx_data:/var/lib/influxdb2
+      - ./init-influxdb-read:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "influx", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+volumes:
+  read_timescale_data:
+  read_mongo_data:
+  read_influx_data:

@@ -1,0 +1,16 @@
+database:
+  MONGODB_USER: "{{ env_var('READBENCH_MONGODB_USER')}}"
+  MONGODB_PASSWORD: "{{ env_var('READBENCH_MONGODB_PASSWORD')}}"
+  MONGODB_HOST: "{{ env_var('READBENCH_MONGODB_HOST')}}"
+  MONGODB_PORT: "{{ env_var('READBENCH_MONGODB_PORT')}}"
+  MONGODB_DATABASE_NAME:  "{{ env_var('READBENCH_MONGODB_DATABASE_NAME')}}"
+  MONGODB_COLLECTION_NAME: "{{ env_var('READBENCH_MONGODB_COLLECTION_NAME')}}"
+
+    # MongoDB Atlas cluster
+  MONGODB_CLUSTER: "{{ env_var('MONGODB_CLUSTER')}}"
+  
+  MONGODB_MODE: "{{ env_var('MONGODB_MODE')}}"
+
+
+general:
+  log_file: "./logs/readbench_mongodb_logs.log"

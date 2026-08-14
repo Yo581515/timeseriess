@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 
 from sqlalchemy import (
+    Boolean,
     Column,
     Integer,
     String,
@@ -91,3 +92,273 @@ class IngestionBenchmarkResult(Base):
             "insert_operation_count": self.insert_operation_count,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
+        
+        
+        
+class DiskSizeBenchmarkResult(Base):
+    __tablename__ = "disk_size_benchmark_results"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+
+    benchmark_name = Column(String, nullable=False)
+    database_system = Column(String, nullable=False)
+    database_version = Column(String, nullable=True)
+
+    batch_id = Column(Integer, nullable=False)
+    dataset_name = Column(String, nullable=False)
+    record_count = Column(Integer, nullable=False)
+
+    cumulative_record_count = Column(BigInteger, nullable=False)
+
+    disk_size_before_bytes = Column(BigInteger, nullable=False)
+    disk_size_after_bytes = Column(BigInteger, nullable=False)
+    disk_size_delta_bytes = Column(BigInteger, nullable=False)
+
+    created_at = Column(DateTime(timezone=True), nullable=False, default=utc_now)
+
+    def __str__(self) -> str:
+        return (
+            f"DiskSizeBenchmarkResult {self.id}\n"
+            f"  benchmark:           {self.benchmark_name}\n"
+            f"  database system:     {self.database_system}\n"
+            f"  database version:    {self.database_version or 'N/A'}\n"
+            f"  batch id:            {self.batch_id}\n"
+            f"  dataset:             {self.dataset_name}\n"
+            f"  record count:        {self.record_count}\n"
+            f"  cumulative records:  {self.cumulative_record_count}\n"
+            f"  size before:         {self.disk_size_before_bytes:,} bytes\n"
+            f"  size after:          {self.disk_size_after_bytes:,} bytes\n"
+            f"  size delta:          {self.disk_size_delta_bytes:,} bytes\n"
+            f"  created at:          {self.created_at.isoformat()}"
+        )
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "benchmark_name": self.benchmark_name,
+            "database_system": self.database_system,
+            "database_version": self.database_version,
+            "batch_id": self.batch_id,
+            "dataset_name": self.dataset_name,
+            "record_count": self.record_count,
+            "cumulative_record_count": self.cumulative_record_count,
+            "disk_size_before_bytes": self.disk_size_before_bytes,
+            "disk_size_after_bytes": self.disk_size_after_bytes,
+            "disk_size_delta_bytes": self.disk_size_delta_bytes,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+        }
+        
+        
+
+class ReadLatestBenchmarkResult(Base):
+    __tablename__ = "read_latest_benchmark_results"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+
+    benchmark_name = Column(String, nullable=False)
+    database_system = Column(String, nullable=False)
+    database_version = Column(String, nullable=True)
+
+    parameter = Column(String, nullable=False)
+    result_found = Column(Boolean, nullable=False)
+
+    elapsed_time_seconds = Column(Float, nullable=False)
+    elapsed_time_ns = Column(BigInteger, nullable=False)
+
+    created_at = Column(DateTime(timezone=True), nullable=False, default=utc_now)
+
+    def __str__(self) -> str:
+        return (
+            f"ReadLatestBenchmarkResult {self.id}\n"
+            f"  benchmark:          {self.benchmark_name}\n"
+            f"  database system:    {self.database_system}\n"
+            f"  database version:   {self.database_version or 'N/A'}\n"
+            f"  parameter:          {self.parameter}\n"
+            f"  result found:       {self.result_found}\n"
+            f"  elapsed time:       {self.elapsed_time_seconds:.6f} s\n"
+            f"  elapsed time ns:    {self.elapsed_time_ns} ns\n"
+            f"  created at:         {self.created_at.isoformat()}"
+        )
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "benchmark_name": self.benchmark_name,
+            "database_system": self.database_system,
+            "database_version": self.database_version,
+            "parameter": self.parameter,
+            "result_found": self.result_found,
+            "elapsed_time_seconds": self.elapsed_time_seconds,
+            "elapsed_time_ns": self.elapsed_time_ns,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+        }
+        
+
+class ReadRangeBenchmarkResult(Base):
+    __tablename__ = "read_range_benchmark_results"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+
+    benchmark_name = Column(String, nullable=False)
+    database_system = Column(String, nullable=False)
+    database_version = Column(String, nullable=True)
+
+    parameter = Column(String, nullable=False)
+    range_window = Column(String, nullable=False)
+    start_time = Column(DateTime(timezone=True), nullable=False)
+    end_time = Column(DateTime(timezone=True), nullable=False)
+
+    result_row_count = Column(Integer, nullable=False)
+
+    elapsed_time_seconds = Column(Float, nullable=False)
+    elapsed_time_ns = Column(BigInteger, nullable=False)
+
+    created_at = Column(DateTime(timezone=True), nullable=False, default=utc_now)
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "benchmark_name": self.benchmark_name,
+            "database_system": self.database_system,
+            "database_version": self.database_version,
+            "parameter": self.parameter,
+            "range_window": self.range_window,
+            "start_time": self.start_time.isoformat() if self.start_time else None,
+            "end_time": self.end_time.isoformat() if self.end_time else None,
+            "result_row_count": self.result_row_count,
+            "elapsed_time_seconds": self.elapsed_time_seconds,
+            "elapsed_time_ns": self.elapsed_time_ns,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+        }
+        
+
+
+
+
+class ReadCardinalityBenchmarkResult(Base):
+    __tablename__ = "read_cardinality_benchmark_results"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+
+    benchmark_name = Column(String, nullable=False)
+    database_system = Column(String, nullable=False)
+    database_version = Column(String, nullable=True)
+
+    cardinality_level = Column(String, nullable=False)  # "single_sensor" | "single_parameter_all_nodes" | "all"
+    parameter = Column(String, nullable=True)             # NULL when level = "all"
+    node_source_id = Column(String, nullable=True)        # NULL when level != "single_sensor"
+
+    range_window = Column(String, nullable=False)
+    start_time = Column(DateTime(timezone=True), nullable=False)
+    end_time = Column(DateTime(timezone=True), nullable=False)
+
+    result_row_count = Column(Integer, nullable=False)
+
+    elapsed_time_seconds = Column(Float, nullable=False)
+    elapsed_time_ns = Column(BigInteger, nullable=False)
+
+    created_at = Column(DateTime(timezone=True), nullable=False, default=utc_now)
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "benchmark_name": self.benchmark_name,
+            "database_system": self.database_system,
+            "database_version": self.database_version,
+            "cardinality_level": self.cardinality_level,
+            "parameter": self.parameter,
+            "node_source_id": self.node_source_id,
+            "range_window": self.range_window,
+            "start_time": self.start_time.isoformat() if self.start_time else None,
+            "end_time": self.end_time.isoformat() if self.end_time else None,
+            "result_row_count": self.result_row_count,
+            "elapsed_time_seconds": self.elapsed_time_seconds,
+            "elapsed_time_ns": self.elapsed_time_ns,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+        }
+        
+
+class ReadAggregateBenchmarkResult(Base):
+    __tablename__ = "read_aggregate_benchmark_results"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+
+    benchmark_name = Column(String, nullable=False)
+    database_system = Column(String, nullable=False)
+    database_version = Column(String, nullable=True)
+
+    parameter = Column(String, nullable=False)
+    range_window = Column(String, nullable=False)
+    start_time = Column(DateTime(timezone=True), nullable=False)
+    end_time = Column(DateTime(timezone=True), nullable=False)
+
+    avg_value = Column(Float, nullable=True)
+    min_value = Column(Float, nullable=True)
+    max_value = Column(Float, nullable=True)
+    row_count = Column(Integer, nullable=True)
+
+    elapsed_time_seconds = Column(Float, nullable=False)
+    elapsed_time_ns = Column(BigInteger, nullable=False)
+
+    created_at = Column(DateTime(timezone=True), nullable=False, default=utc_now)
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "benchmark_name": self.benchmark_name,
+            "database_system": self.database_system,
+            "database_version": self.database_version,
+            "parameter": self.parameter,
+            "range_window": self.range_window,
+            "start_time": self.start_time.isoformat() if self.start_time else None,
+            "end_time": self.end_time.isoformat() if self.end_time else None,
+            "avg_value": self.avg_value,
+            "min_value": self.min_value,
+            "max_value": self.max_value,
+            "row_count": self.row_count,
+            "elapsed_time_seconds": self.elapsed_time_seconds,
+            "elapsed_time_ns": self.elapsed_time_ns,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+        }
+        
+        
+
+class ReadBucketedBenchmarkResult(Base):
+    __tablename__ = "read_bucketed_benchmark_results"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+
+    benchmark_name = Column(String, nullable=False)
+    database_system = Column(String, nullable=False)
+    database_version = Column(String, nullable=True)
+
+    parameter = Column(String, nullable=False)
+    bucket_interval = Column(String, nullable=False)
+    range_window = Column(String, nullable=False)
+    start_time = Column(DateTime(timezone=True), nullable=False)
+    end_time = Column(DateTime(timezone=True), nullable=False)
+
+    bucket_count = Column(Integer, nullable=False)
+
+    elapsed_time_seconds = Column(Float, nullable=False)
+    elapsed_time_ns = Column(BigInteger, nullable=False)
+
+    created_at = Column(DateTime(timezone=True), nullable=False, default=utc_now)
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "benchmark_name": self.benchmark_name,
+            "database_system": self.database_system,
+            "database_version": self.database_version,
+            "parameter": self.parameter,
+            "bucket_interval": self.bucket_interval,
+            "range_window": self.range_window,
+            "start_time": self.start_time.isoformat() if self.start_time else None,
+            "end_time": self.end_time.isoformat() if self.end_time else None,
+            "bucket_count": self.bucket_count,
+            "elapsed_time_seconds": self.elapsed_time_seconds,
+            "elapsed_time_ns": self.elapsed_time_ns,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+        }
+        

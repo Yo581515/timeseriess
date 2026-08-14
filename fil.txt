@@ -1,0 +1,4 @@
+mkdir -p ~/app
+cd ~/app
+python -m venv .venv
+source .venv/bin/activate

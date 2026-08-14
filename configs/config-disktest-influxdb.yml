@@ -1,0 +1,11 @@
+database:
+  INFLUXDB_USERNAME: "{{ env_var('DISKTEST_INFLUXDB_USERNAME')}}"
+  INFLUXDB_PASSWORD: "{{ env_var('DISKTEST_INFLUXDB_PASSWORD')}}"
+  INFLUXDB_ORG: "{{ env_var('DISKTEST_INFLUXDB_ORG')}}"
+  INFLUXDB_BUCKET: "{{ env_var('DISKTEST_INFLUXDB_BUCKET')}}"
+  INFLUXDB_HOST: "{{ env_var('DISKTEST_INFLUXDB_HOST')}}"
+  INFLUXDB_PORT: "{{ env_var('DISKTEST_INFLUXDB_PORT')}}"
+  INFLUXDB_TOKEN: "{{ env_var('DISKTEST_INFLUXDB_TOKEN')}}"
+
+general:
+  log_file: "./logs/disktest_influxdb_logs.log"

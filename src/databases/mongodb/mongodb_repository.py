@@ -1,3 +1,4 @@
+import datetime
 import logging
 
 from src.databases.mongodb.config import MongoDBConfig
@@ -164,3 +165,155 @@ class MongoDBRepository(MongoDBClient):
         except Exception as e:
             self.logger.exception("delete_by_query() error: %s", e)
             raise RuntimeError("Failed to delete documents.") from e
+        
+    def query_latest(self, parameter: str) -> tuple[dict | None, int]:
+        if self.collection is None:
+            raise RuntimeError("No collection available. Call connect_and_cache() first.")
+
+        pipeline = [
+            {"$sort": {"time": -1}},
+            {"$limit": 200},
+            {"$unwind": "$observations"},
+            {"$match": {"observations.parameter": parameter}},
+            {"$sort": {"time": -1}},
+            {"$limit": 1},
+        ]
+        try:
+            t0 = time.perf_counter_ns()
+            result = list(self.collection.aggregate(pipeline))
+            elapsed_ns = time.perf_counter_ns() - t0
+            return (result[0] if result else None), elapsed_ns
+        except Exception as e:
+            self.logger.exception("query_latest() error: %s", e)
+            raise RuntimeError("Failed to query latest observation.") from e
+        
+    def query_range(self, parameter: str, start_time: datetime, end_time: datetime) -> tuple[list[dict], int]:
+        if self.collection is None:
+            raise RuntimeError("No collection available. Call connect_and_cache() first.")
+
+        pipeline = [
+            {"$match": {"time": {"$gte": start_time, "$lte": end_time}}},
+            {"$unwind": "$observations"},
+            {"$match": {"observations.parameter": parameter}},
+        ]
+        try:
+            t0 = time.perf_counter_ns()
+            results = list(self.collection.aggregate(pipeline, allowDiskUse=True))
+            elapsed_ns = time.perf_counter_ns() - t0
+            return results, elapsed_ns
+        except Exception as e:
+            self.logger.exception("query_range() error: %s", e)
+            raise RuntimeError("Failed to query range.") from e
+        
+    def query_cardinality(
+        self,
+        start_time: datetime,
+        end_time: datetime,
+        parameter: str | None = None,
+        node_source_id: str | None = None,
+    ) -> tuple[list[dict], int]:
+        if self.collection is None:
+            raise RuntimeError("No collection available. Call connect_and_cache() first.")
+
+        match_stage = {"time": {"$gte": start_time, "$lte": end_time}}
+        if node_source_id is not None:
+            match_stage["source_id"] = node_source_id
+
+        pipeline = [{"$match": match_stage}]
+
+        if parameter is not None:
+            pipeline.append({"$unwind": "$observations"})
+            pipeline.append({"$match": {"observations.parameter": parameter}})
+        else:
+            # still unwind so result count reflects individual parameter readings,
+            # consistent with the flat row-per-reading count in Timescale/Influx
+            pipeline.append({"$unwind": "$observations"})
+
+        try:
+            t0 = time.perf_counter_ns()
+            results = list(self.collection.aggregate(pipeline, allowDiskUse=True))
+            elapsed_ns = time.perf_counter_ns() - t0
+            return results, elapsed_ns
+        except Exception as e:
+            self.logger.exception("query_cardinality() error: %s", e)
+            raise RuntimeError("Failed to query cardinality.") from e
+        
+        
+    def query_aggregate(
+        self,
+        parameter: str,
+        start_time: datetime,
+        end_time: datetime,
+    ) -> tuple[dict, int]:
+        if self.collection is None:
+            raise RuntimeError("No collection available. Call connect_and_cache() first.")
+
+        pipeline = [
+            {"$match": {"time": {"$gte": start_time, "$lte": end_time}}},
+            {"$unwind": "$observations"},
+            {"$match": {"observations.parameter": parameter}},
+            {"$group": {
+                "_id": None,
+                "avg_value": {"$avg": "$observations.value"},
+                "min_value": {"$min": "$observations.value"},
+                "max_value": {"$max": "$observations.value"},
+                "row_count": {"$sum": 1},
+            }},
+        ]
+        try:
+            t0 = time.perf_counter_ns()
+            results = list(self.collection.aggregate(pipeline, allowDiskUse=True))
+            elapsed_ns = time.perf_counter_ns() - t0
+
+            if results:
+                r = results[0]
+                result = {
+                    "avg_value": r.get("avg_value"),
+                    "min_value": r.get("min_value"),
+                    "max_value": r.get("max_value"),
+                    "row_count": r.get("row_count"),
+                }
+            else:
+                result = {"avg_value": None, "min_value": None, "max_value": None, "row_count": 0}
+
+            return result, elapsed_ns
+        except Exception as e:
+            self.logger.exception("query_aggregate() error: %s", e)
+            raise RuntimeError("Failed to query aggregate.") from e
+        
+
+
+    def query_bucketed(
+        self,
+        parameter: str,
+        start_time: datetime,
+        end_time: datetime,
+        bucket_interval: str,
+    ) -> tuple[list[dict], int]:
+        if self.collection is None:
+            raise RuntimeError("No collection available. Call connect_and_cache() first.")
+
+        pipeline = [
+            {"$match": {"time": {"$gte": start_time, "$lte": end_time}}},
+            {"$unwind": "$observations"},
+            {"$match": {"observations.parameter": parameter}},
+            {"$group": {
+                "_id": {"$dateTrunc": {"date": "$time", "unit": bucket_interval}},
+                "avg_value": {"$avg": "$observations.value"},
+                "row_count": {"$sum": 1},
+            }},
+            {"$sort": {"_id": 1}},
+        ]
+        try:
+            t0 = time.perf_counter_ns()
+            results = list(self.collection.aggregate(pipeline, allowDiskUse=True))
+            elapsed_ns = time.perf_counter_ns() - t0
+
+            buckets = [
+                {"bucket_time": r["_id"], "avg_value": r.get("avg_value"), "row_count": r.get("row_count")}
+                for r in results
+            ]
+            return buckets, elapsed_ns
+        except Exception as e:
+            self.logger.exception("query_bucketed() error: %s", e)
+            raise RuntimeError("Failed to query bucketed aggregation.") from e
