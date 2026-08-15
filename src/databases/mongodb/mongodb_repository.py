@@ -151,7 +151,7 @@ class MongoDBRepository(MongoDBClient):
 
         
     
-    def delete_by_query(self, query: __dict__) -> bool:
+    def delete_by_query(self, query: dict) -> bool:
         if query is None:
             self.logger.error("delete_by_query(): query is None")
             raise ValueError("Query cannot be None")
