@@ -12,3 +12,11 @@ psycopg2-binary
 
 
 influxdb-client
+
+matplotlib
+pandas
+numpy
+
+dotenv
+
+scipy
