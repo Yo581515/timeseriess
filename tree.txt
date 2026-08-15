@@ -7,6 +7,7 @@
 ├── .gitmodules
 ├── .indent.log
 ├── alias_wsl_windows.txt
+├── aws_key.pem
 ├── configs
 │   ├── config-benchmarkdb.yml
 │   ├── config-disktest-influxdb.yml
@@ -109,156 +110,10 @@
 │   ├── generate_tree.sh
 │   ├── setup_terminal_env.sh
 │   ├── start.sh
-├── disk_size_data
-│   ├── influxdb
-│   │   ├── engine
-│   │   │   ├── data
-│   │   │   ├── replicationq
-│   │   ├── influxd.bolt
-│   │   ├── influxd.sqlite
-│   ├── mongodb
-│   │   ├── .mongodb
-│   │   │   ├── mongosh
-│   │   │   │   ├── 6a7d78d344ed429743cc0f32_log
-│   │   │   │   ├── 6a7d78d81fe95e74e8c315c5_log
-│   │   │   │   ├── 6a7d78de61fbe6e1bbe67bac_log
-│   │   │   │   ├── 6a7d78e4c9926eba37cf6495_log
-│   │   │   │   ├── 6a7d78e92d6ff307040ab79c_log
-│   │   │   │   ├── 6a7d78ef880ac86131db44d7_log
-│   │   │   │   ├── 6a7d78f6294a36e388eaefbc_log
-│   │   │   │   ├── 6a7d78fca7181c74780f776d_log
-│   │   │   │   ├── 6a7d79025f75301ba2db2df6_log
-│   │   │   │   ├── 6a7d7907c33e5c0b27760568_log
-│   │   │   │   ├── 6a7d790db944ae4dd184dd88_log
-│   │   │   │   ├── 6a7d791373b9c0f3569b1065_log
-│   │   │   │   ├── 6a7d7919c673c033a3f69c87_log
-│   │   │   │   ├── 6a7d791fa1f5a8eafe285368_log
-│   │   │   │   ├── 6a7d79258eb51b129f79f9e2_log
-│   │   │   │   ├── 6a7d792b4b94896fdde63129_log
-│   │   │   │   ├── 6a7d7930d3880fd725c01941_log
-│   │   │   │   ├── 6a7d79366a2d9f2bcf9981a8_log
-│   │   │   │   ├── 6a7d793c9ea60e02eb3f48eb_log
-│   │   │   │   ├── 6a7d7942ae2d75bc0757921a_log
-│   │   │   │   ├── 6a7d7948989f229e0e87045f_log
-│   │   │   │   ├── 6a7d794e0ae63c62aba8ebf5_log
-│   │   │   │   ├── 6a7d7953c519746964eb92fc_log
-│   │   │   │   ├── 6a7d79599a745461a020e658_log
-│   │   │   │   ├── 6a7d795fabc805cb20e2a8c3_log
-│   │   │   │   ├── 6a7d796454e01f8ac21bdb50_log
-│   │   │   │   ├── 6a7d796af03a0342182031ba_log
-│   │   │   │   ├── 6a7d7970f93b58360381c8d8_log
-│   │   │   │   ├── 6a7d79761368033f14d0177b_log
-│   │   │   │   ├── 6a7d797ceca9bc63c41352a7_log
-│   │   │   │   ├── 6a7d7982ba60f6643452f6d7_log
-│   │   │   │   ├── 6a7d798988f7f4da781ed905_log
-│   │   │   │   ├── 6a7d798f6119b4b6c56989d6_log
-│   │   │   │   ├── 6a7d7995362da5d5cde6791d_log
-│   │   │   │   ├── 6a7d799a30d38813fa09c2ce_log
-│   │   │   │   ├── 6a7d79a0ebb004678aa959c7_log
-│   │   │   │   ├── 6a7d79a63694bec84b204941_log
-│   │   │   │   ├── 6a7d79ac3a50bb38f5120390_log
-│   │   │   │   ├── 6a7d79b226df186b631e3b6a_log
-│   │   │   │   ├── 6a7d79b865d9657944afafff_log
-│   │   │   │   ├── 6a7d79bd212bd267469763d7_log
-│   │   │   │   ├── 6a7d79c3d977e21a88b7cc13_log
-│   │   │   │   ├── 6a7d79c9f4e8c4e76c2e5dd5_log
-│   │   │   │   ├── 6a7d79ce3f499da419df4cbe_log
-│   │   │   │   ├── 6a7d79d4faf56335e5b7916a_log
-│   │   │   │   ├── 6a7d79dadae01bb7b5e418b2_log
-│   │   │   │   ├── 6a7d79df13dddf5744fecea3_log
-│   │   │   │   ├── 6a7d79e57a1ab8e61e21009f_log
-│   │   │   │   ├── 6a7d79eb5589ea4a9963ce45_log
-│   │   │   │   ├── 6a7d79f0d5a4ea75e4cb4be4_log
-│   │   │   │   ├── 6a7d79f6043b62a8ebd132d3_log
-│   │   │   │   ├── 6a7d79fbf4fd195234eb40fd_log
-│   │   │   │   ├── 6a7d7a0161ce62a906177682_log
-│   │   │   │   ├── 6a7d7a0708bcb105bc2a1cf2_log
-│   │   │   │   ├── 6a7d7a0c4d8953faa067b49f_log
-│   │   │   │   ├── 6a7d7a12436ead524216f41e_log
-│   │   │   │   ├── 6a7d7a1834902e6943d1a5aa_log
-│   │   │   │   ├── 6a7d7a1e77669d118865caab_log
-│   │   │   │   ├── 6a7d7a246011e7ca2b724e5b_log
-│   │   │   │   ├── 6a7d7a2964998f2e5d96ddab_log
-│   │   │   │   ├── 6a7d7a2f51de3b59f421cc4d_log
-│   │   │   │   ├── 6a7d7a35a2a92628760e4472_log
-│   │   │   │   ├── 6a7d7a3ad3b65bee5ab3cc93_log
-│   │   │   │   ├── 6a7d7a4062679adcee4005b4_log
-│   │   │   │   ├── 6a7d7a451f4557cd32d4d5d8_log
-│   │   │   │   ├── 6a7d7a4c9ef990c0963d612c_log
-│   │   │   │   ├── 6a7d7a51bcea121a35bc5394_log
-│   │   │   │   ├── 6a7d7a57abab107088e2bc77_log
-│   │   │   │   ├── 6a7d7a5e4cc962373b586165_log
-│   │   │   │   ├── 6a7d7a64c23bf44d75af4a44_log
-│   │   │   │   ├── 6a7d7a6a8532213f6561a9bb_log
-│   │   │   │   ├── 6a7d7a70132d14f60e5763cc_log
-│   │   │   │   ├── 6a7d7a7673649fefc66056e3_log
-│   │   │   │   ├── 6a7d7a7cd3ea6a7fd52628c8_log
-│   │   │   │   ├── 6a7d7a82184d7f5fe18492e5_log
-│   │   │   │   ├── 6a7d7a881c7f490068e12741_log
-│   │   │   │   ├── 6a7d7a8d9425586bccb0db5e_log
-│   │   │   │   ├── 6a7d7a9304416c6e7621a1f5_log
-│   │   │   │   ├── 6a7d7a99cf176ff2425d4422_log
-│   │   │   │   ├── 6a7d7a9eba3ff50074fc4a2d_log
-│   │   │   │   ├── 6a7d7aa45d72a3e9fad05cc9_log
-│   │   │   │   ├── 6a7d7aa99e2159a6883ffffe_log
-│   │   │   │   ├── 6a7d7aaf256f8a67355c9ced_log
-│   │   │   │   ├── 6a7d7ab50c062bf343a4db45_log
-│   │   │   │   ├── 6a7d7aba1d831df744a38337_log
-│   │   │   │   ├── 6a7d7ac0224970e1ffde750b_log
-│   │   │   │   ├── 6a7d7ac64b37285ba9bde476_log
-│   │   │   │   ├── 6a7d7acc7b9bebfe3fe63f0e_log
-│   │   │   │   ├── 6a7d7ad137bbcc26fceed3dd_log
-│   │   │   │   ├── 6a7d7ad7835f3f45c1a9cc3d_log
-│   │   │   │   ├── 6a7d7add18381a143f73c033_log
-│   │   │   │   ├── 6a7d7ae2f411e488b1bd2604_log
-│   │   │   │   ├── 6a7d7ae812557f72939b3a37_log
-│   │   │   │   ├── 6a7d7aeed210de7549a9942b_log
-│   │   │   │   ├── 6a7d7af35fe1474ee8deb1fa_log
-│   │   │   │   ├── 6a7d7af9fda8d5f1806b477d_log
-│   │   │   │   ├── 6a7d7affaa1d3c8e3d6d42e8_log
-│   │   │   │   ├── 6a7d7b05c86b500966ebafc6_log
-│   │   │   │   ├── 6a7d87f0fff53c0a900a10d3_log
-│   │   │   │   ├── 6a7d87f6e2bf696a0bb5907c_log
-│   │   │   │   ├── config
-│   │   │   │   ├── mongosh_repl_history
-│   │   │   │   ├── snippets
-│   │   │   │   │   ├── package.json
-│   │   ├── _mdb_catalog.wt
-│   │   ├── _tmp
-│   │   │   ├── spilldb
-│   │   │   │   ├── WiredTiger
-│   │   │   │   ├── WiredTiger.lock
-│   │   │   │   ├── WiredTiger.turtle
-│   │   │   │   ├── WiredTiger.wt
-│   │   │   │   ├── WiredTigerHS.wt
-│   │   ├── collection-2a87fee2-78cf-4270-9799-b1ff0ff1b648.wt
-│   │   ├── collection-43a0f31b-7ffd-4dce-8c88-20a0a11ee57e.wt
-│   │   ├── collection-5f845d4f-4ccb-4ba0-a27b-86c441a1f05a.wt
-│   │   ├── collection-fd7f14f3-77ec-4bcb-9a68-ea28e92a9033.wt
-│   │   ├── diagnostic.data
-│   │   │   ├── metrics.2026-08-13T07-45-47Z-00000
-│   │   │   ├── metrics.2026-08-13T07-46-11Z-00000
-│   │   ├── index-19113d3a-b253-4434-a924-62a09f2ba10a.wt
-│   │   ├── index-60ebcfaa-7a98-4934-ad36-181a3cda8210.wt
-│   │   ├── index-7f4d1c90-449b-4523-8bce-d2f9765a8cfa.wt
-│   │   ├── index-941b0a8d-6f19-44fa-b811-360dc5f5d2ed.wt
-│   │   ├── index-cf9ddaf9-102a-4564-8f4e-ba2664b68385.wt
-│   │   ├── index-ef69dd96-1782-4a90-8d52-5e86d4e7abc3.wt
-│   │   ├── journal
-│   │   │   ├── WiredTigerLog.0000000002
-│   │   │   ├── WiredTigerLog.0000000003
-│   │   ├── mongod.lock
-│   │   ├── sizeStorer.wt
-│   │   ├── storage.bson
-│   │   ├── WiredTiger
-│   │   ├── WiredTiger.lock
-│   │   ├── WiredTiger.turtle
-│   │   ├── WiredTiger.wt
-│   │   ├── WiredTigerHS.wt
-│   ├── timescaledb
 ├── docker-compose.disksize.yml
 ├── docker-compose.readbench.yml
 ├── docker-compose.yml
+├── fil.txt
 ├── indent.log
 ├── init-benchmark
 │   ├── 01-setup.sql
@@ -293,17 +148,24 @@
 │   ├── read
 │   │   ├── logs
 │   │   │   ├── benchmarkdb_logs.log
+│   │   ├── read_aggregate_benchmark_results.ipynb
+│   │   ├── read_bucketed_benchmark_results.ipynb
+│   │   ├── read_cardinality_benchmark_results.ipynb
 │   │   ├── read_latest_benchmark_results.ipynb
+│   │   ├── read_range_benchmark_results.ipynb
 │   ├── write
 │   │   ├── logs
 │   │   │   ├── benchmarkdb_logs.log
 │   │   ├── write_benchmark.ipynb
+│   │   ├── write_benchmark_batch100.ipynb
+│   │   ├── write_benchmark_batch1000.ipynb
+│   │   ├── write_benchmark_batch250 copy.ipynb
+│   │   ├── write_benchmark_batch500 copy.ipynb
 ├── notes.txt
 ├── nrec.pem
 ├── README.md
 ├── requirements.txt
 ├── requirements-dev.txt
-├── results
 ├── src
 │   ├── benchmark
 │   │   ├── disk_size
@@ -312,13 +174,25 @@
 │   │   │   ├── timescaledb_disk_size_benchmark.py
 │   │   ├── read
 │   │   │   ├── aggregation
+│   │   │   │   ├── influxdb_aggregation_benchmark.py
+│   │   │   │   ├── mongodb_aggregation_benchmark.py
+│   │   │   │   ├── timescaledb_aggregation_benchmark.py
 │   │   │   ├── Cardinality
+│   │   │   │   ├── influxdb_cardinality_benchmark.py
+│   │   │   │   ├── mongodb_cardinality_benchmark.py
+│   │   │   │   ├── timescaledb_cardinality_benchmark.py
 │   │   │   ├── latest_value
 │   │   │   │   ├── influxdb_latest_value_benchmark.py
 │   │   │   │   ├── mongodb_latest_value_benchmark.py
 │   │   │   │   ├── timescaledb_latest_value_benchmark.py
 │   │   │   ├── range_quiry
+│   │   │   │   ├── influxdb_range_query_benchmark.py
+│   │   │   │   ├── mongodb_range_query_benchmark.py
+│   │   │   │   ├── timescaledb_range_query_benchmark.py
 │   │   │   ├── timebucket_aggregation
+│   │   │   │   ├── influxdb_timebucket_benchmark.py
+│   │   │   │   ├── mongodb_timebucket_benchmark.py
+│   │   │   │   ├── timescaledb_timebucket_benchmark.py
 │   │   ├── write
 │   │   │   ├── influxdb
 │   │   │   │   ├── influxdb_write_benchmark.py

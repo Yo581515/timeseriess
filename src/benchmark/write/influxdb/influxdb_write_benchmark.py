@@ -172,7 +172,7 @@ try:
                     result = IngestionBenchmarkResult(
                         benchmark_name="ingestion.insert_many",
                         database_system="influxdb",
-                        database_version="2.x",
+                        database_version="2.7",
                         database_location="container",
                         insert_batch_size=BATCH_SIZE,
                         batch_id=batch_id,

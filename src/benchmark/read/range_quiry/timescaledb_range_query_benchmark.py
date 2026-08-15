@@ -44,18 +44,18 @@ RANGE_WINDOWS = {
         "start": datetime(2018, 1, 1, tzinfo=timezone.utc),
         "end":   datetime(2021, 1, 1, tzinfo=timezone.utc),
     },
-    # "5_years": {
-    #     "start": datetime(2013, 1, 1, tzinfo=timezone.utc),
-    #     "end":   datetime(2018, 1, 1, tzinfo=timezone.utc),
-    # },
-    # "10_years": {
-    #     "start": datetime(2012, 1, 1, tzinfo=timezone.utc),
-    #     "end":   datetime(2022, 1, 1, tzinfo=timezone.utc),
-    # },
-    # "15_years_full": {
-    #     "start": datetime(2011, 8, 13, tzinfo=timezone.utc),
-    #     "end":   datetime(2026, 8, 13, tzinfo=timezone.utc),
-    # },
+    "5_years": {
+        "start": datetime(2013, 1, 1, tzinfo=timezone.utc),
+        "end":   datetime(2018, 1, 1, tzinfo=timezone.utc),
+    },
+    "10_years": {
+        "start": datetime(2012, 1, 1, tzinfo=timezone.utc),
+        "end":   datetime(2022, 1, 1, tzinfo=timezone.utc),
+    },
+    "15_years_full": {
+        "start": datetime(2011, 8, 13, tzinfo=timezone.utc),
+        "end":   datetime(2026, 8, 13, tzinfo=timezone.utc),
+    },
 }
 
 NUMBER_OF_REPEATS = 3
