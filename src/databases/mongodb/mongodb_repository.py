@@ -288,17 +288,25 @@ class MongoDBRepository(MongoDBClient):
         parameter: str,
         start_time: datetime,
         end_time: datetime,
-        bucket_interval: str,
+        bucket_interval: tuple[str, int],
     ) -> tuple[list[dict], int]:
         if self.collection is None:
             raise RuntimeError("No collection available. Call connect_and_cache() first.")
+
+        unit, bin_size = bucket_interval
+
+        weekday_name = start_time.strftime("%A").lower()
+
+        date_trunc_spec = {"date": "$time", "unit": unit, "binSize": bin_size}
+        if unit == "week":
+            date_trunc_spec["startOfWeek"] = weekday_name
 
         pipeline = [
             {"$match": {"time": {"$gte": start_time, "$lte": end_time}}},
             {"$unwind": "$observations"},
             {"$match": {"observations.parameter": parameter}},
             {"$group": {
-                "_id": {"$dateTrunc": {"date": "$time", "unit": bucket_interval}},
+                "_id": {"$dateTrunc": date_trunc_spec},
                 "avg_value": {"$avg": "$observations.value"},
                 "row_count": {"$sum": 1},
             }},

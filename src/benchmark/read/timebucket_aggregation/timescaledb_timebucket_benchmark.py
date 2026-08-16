@@ -26,6 +26,9 @@ RANGE_WINDOW = {
 }
 
 BUCKET_INTERVALS = {
+    "1_minute": "1 minute",
+    "15_minutes": "15 minutes",
+    "30_minutes": "30 minutes",
     "hourly": "1 hour",
     "daily": "1 day",
     "weekly": "1 week",

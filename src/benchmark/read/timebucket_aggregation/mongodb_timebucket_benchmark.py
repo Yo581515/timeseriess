@@ -26,9 +26,12 @@ RANGE_WINDOW = {
 }
 
 BUCKET_INTERVALS = {
-    "hourly": "hour",
-    "daily": "day",
-    "weekly": "week",
+    "1_minute": ("minute", 1),
+    "15_minutes": ("minute", 15),
+    "30_minutes": ("minute", 30),
+    "hourly": ("hour", 1),
+    "daily": ("day", 1),
+    "weekly": ("week", 1),
 }
 
 NUMBER_OF_REPEATS = 3
