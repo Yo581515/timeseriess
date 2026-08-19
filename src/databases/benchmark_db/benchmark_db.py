@@ -7,7 +7,9 @@ from sqlalchemy.orm import Session
 
 from src.databases.benchmark_db.client import BenchmarkDBClient
 from src.databases.benchmark_db.config import BenchmarkDBConfig
-from src.databases.benchmark_db.models import DiskSizeBenchmarkResult, IngestionBenchmarkResult, ReadAggregateBenchmarkResult, ReadBucketedBenchmarkResult, ReadCardinalityBenchmarkResult, ReadLatestBenchmarkResult, ReadRangeBenchmarkResult
+from src.databases.benchmark_db.models import DiskSizeBenchmarkResult, IngestionBenchmarkResult, \
+    ReadAggregateBenchmarkResult, ReadBucketedBenchmarkResult, ReadCardinalityBenchmarkResult, \
+    ReadLatestBenchmarkResult, ReadRangeBenchmarkResult
 
 
 class BenchmarkDB(BenchmarkDBClient):
@@ -52,12 +54,11 @@ class BenchmarkDB(BenchmarkDBClient):
     def get_all_ingestion_benchmark_results(self) -> List[IngestionBenchmarkResult]:
         with self.session_scope() as db:
             return db.query(IngestionBenchmarkResult).all()
-        
+
     def get_all_disk_size_benchmark_results(self) -> List[DiskSizeBenchmarkResult]:
         with self.session_scope() as db:
             return db.query(DiskSizeBenchmarkResult).all()
-        
-    
+
     def get_all_read_latest_benchmark_results(self) -> List[ReadLatestBenchmarkResult]:
         with self.session_scope() as db:
             return db.query(ReadLatestBenchmarkResult).all()
@@ -65,19 +66,19 @@ class BenchmarkDB(BenchmarkDBClient):
     def count_results(self) -> int:
         with self.session_scope() as db:
             return db.query(IngestionBenchmarkResult).count()
-        
+
     def get_all_read_range_benchmark_results(self) -> List[ReadRangeBenchmarkResult]:
         with self.session_scope() as db:
-            return db.query(ReadRangeBenchmarkResult).all() 
-        
+            return db.query(ReadRangeBenchmarkResult).all()
+
     def get_all_read_cardinality_benchmark_results(self) -> List[ReadCardinalityBenchmarkResult]:
         with self.session_scope() as db:
             return db.query(ReadCardinalityBenchmarkResult).all()
-        
+
     def get_all_read_aggregate_benchmark_results(self) -> List[ReadAggregateBenchmarkResult]:
         with self.session_scope() as db:
             return db.query(ReadAggregateBenchmarkResult).all()
-        
+
     def get_all_read_bucketed_benchmark_results(self) -> List[ReadBucketedBenchmarkResult]:
         with self.session_scope() as db:
             return db.query(ReadBucketedBenchmarkResult).all()
@@ -95,7 +96,6 @@ if __name__ == "__main__":
     from src.common.config import load_config
     from src.common.logger import get_logger
     from src.databases.benchmark_db.config import get_postgres_config
-    
 
     bmdb_config_file_path = "./configs/config-benchmarkdb.yml"
     bmdb_config_dict = load_config(bmdb_config_file_path)
@@ -108,7 +108,7 @@ if __name__ == "__main__":
     print()
     print("printing the dict")
     print(bmdb_config_dict["database"])
-    
+
     print()
     print()
     print("printing the config class")

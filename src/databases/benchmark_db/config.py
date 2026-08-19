@@ -22,7 +22,6 @@ class BenchmarkDBConfig:
 
 
 def get_postgres_config(config_dict: dict) -> BenchmarkDBConfig:
-    
     try:
         return BenchmarkDBConfig(
             username=config_dict["BENCHMARKDB_USER"],

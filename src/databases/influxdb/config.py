@@ -4,6 +4,7 @@ from src.common.config import load_config
 class InfluxDBConfigurationException(Exception):
     pass
 
+
 class InfluxDBConfig:
     def __init__(self, username, password, org, bucket, host, port, token):
         self.INFLUXDB_USERNAME = username
@@ -22,8 +23,8 @@ class InfluxDBConfig:
             f"Org: {self.INFLUXDB_ORG}\n"
             f"Bucket: {self.INFLUXDB_BUCKET}\n"
         )
-        
-        
+
+
 def get_influxdb_config(config_dict: dict) -> InfluxDBConfig:
     try:
         return InfluxDBConfig(
@@ -37,9 +38,9 @@ def get_influxdb_config(config_dict: dict) -> InfluxDBConfig:
         )
     except KeyError as e:
         raise InfluxDBConfigurationException(f"Missing config key: {e}")
-    
-    
-if __name__ == "__main__":    
+
+
+if __name__ == "__main__":
     config_file_path = "configs/config-influxdb.yml"
     config_file_dict = load_config(config_file_path)
     influxdb_config = get_influxdb_config(config_file_dict["database"])

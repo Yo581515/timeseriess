@@ -1,6 +1,7 @@
 import logging
 import os
 
+
 def get_logger(name: str, log_file: str = "app.log") -> logging.Logger:
     """
     Returns a logger that writes only to a file.

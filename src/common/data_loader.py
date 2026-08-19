@@ -1,6 +1,7 @@
 import json
 import os
 
+
 def load_json_data(filepath) -> list[dict]:
     """
     Loads data from a local JSON file.

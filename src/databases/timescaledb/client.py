@@ -2,7 +2,6 @@ import logging
 from contextlib import contextmanager
 from psycopg2.pool import SimpleConnectionPool
 
-
 from src.databases.timescaledb.config import TimeScaleDBConfig
 
 
@@ -18,8 +17,7 @@ class TimeScaleDBClient:
         self.schema = timescaledb_config.TIMESCALEDB_SCHEMA
 
         self.url = f"postgresql://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}"
-        
-        
+
         self.pool = SimpleConnectionPool(minconn=1, maxconn=10, dsn=self.url)
 
         self.logger.info("TimescaleDB connection pool created")
@@ -45,10 +43,6 @@ class TimeScaleDBClient:
     def close(self):
         self.pool.closeall()
         self.logger.info("TimescaleDB connection pool closed")
-        
-    
-        
-        
 
 
 if __name__ == "__main__":
@@ -56,10 +50,10 @@ if __name__ == "__main__":
     from src.common.logger import get_logger
     from src.databases.timescaledb.config import get_timescaledb_config
 
-    timescale_config_path = "./configs/config-timescaledb.yml" 
-    timescale_config = load_config(timescale_config_path) #dict
+    timescale_config_path = "./configs/config-timescaledb.yml"
+    timescale_config = load_config(timescale_config_path)  # dict
     logger = get_logger("timescaledb", timescale_config["general"]["log_file"])
     timescale_db_config = get_timescaledb_config(timescale_config["database"])
     timescaledb = TimeScaleDBClient(timescale_db_config, logger)
-    
-    timescaledb.ping() 
+
+    timescaledb.ping()

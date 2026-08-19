@@ -95,8 +95,6 @@ def resolve_data(data_point: dict, logger: logging.Logger) -> bool:
     return True
 
 
-
-
 def make_strftime_from_utc(d: dict) -> dict:
     if "time" not in d or d["time"] is None:
         breakpoint()
@@ -111,9 +109,6 @@ def make_strftime_from_utc(d: dict) -> dict:
 
     d["time"] = dt.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
     return d
-
-
-
 
 
 def load_mongodb_json(file_path: str, logger: logging.Logger) -> list[dict]:

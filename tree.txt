@@ -108,12 +108,15 @@
 │   │   │   ├── setup_timescaledb_data.py
 ├── dev_scripts
 │   ├── generate_tree.sh
-│   ├── setup_terminal_env.sh
+│   ├── setup_terminal_env_local.sh
+│   ├── setup_terminal_env_vm.sh
 │   ├── start.sh
 ├── docker-compose.disksize.yml
 ├── docker-compose.readbench.yml
 ├── docker-compose.yml
 ├── fil.txt
+├── images
+│   ├── vm_resources.png
 ├── indent.log
 ├── init-benchmark
 │   ├── 01-setup.sql

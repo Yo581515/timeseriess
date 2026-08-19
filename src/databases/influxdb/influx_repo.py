@@ -29,6 +29,8 @@ class InfluxRepo(InfluxDB_Client):
             raise Exception(f"Error pinging InfluxDB: {e}")
 
     def _to_point(self, obs: Observation) -> Point:
+        # tags are indexed/queryable dimensions, fields are the actual values.
+        # quality_codes gets stored as a string field since influx fields can't hold lists
         return (
             Point(MEASUREMENT)
             .tag("node_source", obs.node_source)
@@ -71,10 +73,10 @@ class InfluxRepo(InfluxDB_Client):
             raise Exception(f"Batch insert failed: {e}")
 
     def query_by_parameter(
-        self,
-        parameter: str,
-        start_time: datetime,
-        end_time: datetime,
+            self,
+            parameter: str,
+            start_time: datetime,
+            end_time: datetime,
     ) -> list[Observation]:
         try:
             start = start_time.astimezone(timezone.utc).isoformat()
@@ -137,7 +139,7 @@ class InfluxRepo(InfluxDB_Client):
         except Exception as e:
             self.logger.error(f"Error deleting observations: {e}")
             raise Exception(f"Delete failed: {e}")
-        
+
     def query_latest(self, parameter: str) -> tuple[Observation | None, int]:
         query = f"""
             from(bucket: "{self.bucket}")
@@ -175,13 +177,12 @@ class InfluxRepo(InfluxDB_Client):
                 )
                 return obs, elapsed_ns
         return None, elapsed_ns
-    
-    
+
     def query_range(
-        self,
-        parameter: str,
-        start_time: datetime,
-        end_time: datetime,
+            self,
+            parameter: str,
+            start_time: datetime,
+            end_time: datetime,
     ) -> tuple[list[Observation], int]:
         try:
             start = start_time.astimezone(timezone.utc).isoformat()
@@ -227,13 +228,13 @@ class InfluxRepo(InfluxDB_Client):
         except Exception as e:
             self.logger.error(f"Error querying observations: {e}")
             return [], 0
-        
+
     def query_cardinality(
-        self,
-        start_time: datetime,
-        end_time: datetime,
-        parameter: str | None = None,
-        node_source_id: str | None = None,
+            self,
+            start_time: datetime,
+            end_time: datetime,
+            parameter: str | None = None,
+            node_source_id: str | None = None,
     ) -> tuple[list[Observation], int]:
         try:
             start = start_time.astimezone(timezone.utc).isoformat()
@@ -284,12 +285,12 @@ class InfluxRepo(InfluxDB_Client):
         except Exception as e:
             self.logger.error(f"Error querying cardinality: {e}")
             return [], 0
-        
+
     def query_aggregate(
-        self,
-        parameter: str,
-        start_time: datetime,
-        end_time: datetime,
+            self,
+            parameter: str,
+            start_time: datetime,
+            end_time: datetime,
     ) -> tuple[dict, int]:
         start = start_time.astimezone(timezone.utc).isoformat()
         stop = (end_time.astimezone(timezone.utc) + timedelta(seconds=5)).isoformat()
@@ -329,13 +330,13 @@ class InfluxRepo(InfluxDB_Client):
                     result["row_count"] = int(value) if value is not None else None
 
         return result, elapsed_ns
-    
+
     def query_bucketed(
-        self,
-        parameter: str,
-        start_time: datetime,
-        end_time: datetime,
-        bucket_interval: str,
+            self,
+            parameter: str,
+            start_time: datetime,
+            end_time: datetime,
+            bucket_interval: str,
     ) -> tuple[list[dict], int]:
         from datetime import timedelta
         start = start_time.astimezone(timezone.utc).isoformat()
@@ -365,14 +366,17 @@ class InfluxRepo(InfluxDB_Client):
                 })
         return buckets, elapsed_ns
 
+
 if __name__ == "__main__":
     from datetime import timedelta
     from src.common.config import load_config
     from src.common.logger import get_logger
     from src.databases.influxdb.config import get_influxdb_config
 
+
     def utc_now() -> datetime:
         return datetime.now(timezone.utc)
+
 
     influxdb_config = load_config("./configs/config-influxdb.yml")
     logger = get_logger("influx_repo", influxdb_config["general"]["log_file"])

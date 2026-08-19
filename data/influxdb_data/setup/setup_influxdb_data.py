@@ -14,6 +14,7 @@ JsonDoc = Dict[str, Any]
 
 
 def parse_time(value: Any) -> Optional[datetime]:
+    # accepts either a datetime object or an ISO string, everything else is invalid
     if value is None:
         return None
 
@@ -27,6 +28,7 @@ def parse_time(value: Any) -> Optional[datetime]:
     else:
         return None
 
+    # normalize everything to UTC so timestamps are comparable across the different db exports
     if dt.tzinfo is None:
         return dt.replace(tzinfo=timezone.utc)
 
@@ -34,6 +36,8 @@ def parse_time(value: Any) -> Optional[datetime]:
 
 
 def get_time_range_yyyymmdd(events: List[JsonDoc]) -> Tuple[str, str]:
+    # used later to name the output csv with the actual date range it covers
+
     times: List[datetime] = []
 
     for e in events:
@@ -62,6 +66,7 @@ def extract_batch_info(filename: str) -> Tuple[Optional[str], Optional[str]]:
 
 
 def coerce_to_events(obj: Any) -> List[JsonDoc]:
+    # source json can be a list of events or a single event dict, normalize to a list either way
     if isinstance(obj, list):
         return [x for x in obj if isinstance(x, dict)]
     if isinstance(obj, dict):
@@ -70,6 +75,8 @@ def coerce_to_events(obj: Any) -> List[JsonDoc]:
 
 
 def events_to_dataframe(events: List[JsonDoc]) -> pd.DataFrame:
+    # each event (a node reading) can contain several observations (sensors),
+    # so one event turns into multiple rows, one per observation
     rows: List[Dict[str, Any]] = []
 
     for e in events:

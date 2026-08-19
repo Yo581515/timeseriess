@@ -12,7 +12,6 @@ from src.databases.mongodb.config import get_mongodb_config
 from data.mongodb_data.utils.data_utils import resolve_data, make_strftime_from_utc
 from src.validators.json_validator import is_obj_valid_json
 
-
 JsonDoc = Dict[str, Any]
 
 
@@ -38,12 +37,14 @@ def parse_iso_time(value: Any) -> Optional[datetime]:
         dt = value
     elif isinstance(value, str):
         try:
+
             dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
         except Exception:
             return None
     else:
         return None
 
+    # keep everything on UTC so times line up with the other db exports
     if dt.tzinfo is None:
         return dt.replace(tzinfo=timezone.utc)
 
@@ -51,6 +52,7 @@ def parse_iso_time(value: Any) -> Optional[datetime]:
 
 
 def get_time_range_yyyymmdd(docs: List[JsonDoc]) -> Tuple[str, str]:
+    # used to name the output file with the actual date range it covers
     times: List[datetime] = []
 
     for doc in docs:
@@ -81,6 +83,7 @@ def extract_batch_info(filename: str) -> Tuple[Optional[str], Optional[str]]:
 
 
 def coerce_to_docs(obj: Any) -> List[JsonDoc]:
+    # raw json root can be a list of docs or a single doc, normalize to a list either way
     if isinstance(obj, list):
         return [x for x in obj if isinstance(x, dict)]
     if isinstance(obj, dict):

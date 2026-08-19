@@ -5,18 +5,18 @@ from typing import List
 
 @dataclass
 class Observation:
-    time:             datetime
-    node_source:      str
-    node_source_id:   str
-    latitude:         float
-    longitude:        float
-    
-    sensor_source:    str
+    time: datetime
+    node_source: str
+    node_source_id: str
+    latitude: float
+    longitude: float
+
+    sensor_source: str
     sensor_source_id: str
-    parameter:        str
-    value:            float
-    unit:             str
-    quality_codes:    List[int] = field(default_factory=list)
+    parameter: str
+    value: float
+    unit: str
+    quality_codes: List[int] = field(default_factory=list)
 
     def to_tuple(self) -> tuple:
         return (

@@ -17,6 +17,7 @@ def utc_now() -> datetime:
     return datetime.now(timezone.utc)
 
 
+# one row per write-batch: how long it took to insert a batch and at what throughput
 class IngestionBenchmarkResult(Base):
     __tablename__ = "ingestion_benchmark_results"
 
@@ -92,9 +93,9 @@ class IngestionBenchmarkResult(Base):
             "insert_operation_count": self.insert_operation_count,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
-        
-        
-        
+
+
+# one row per batch: disk size before/after inserting that batch, to track storage growth over time   
 class DiskSizeBenchmarkResult(Base):
     __tablename__ = "disk_size_benchmark_results"
 
@@ -147,9 +148,9 @@ class DiskSizeBenchmarkResult(Base):
             "disk_size_delta_bytes": self.disk_size_delta_bytes,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
-        
-        
 
+
+# one row per lookup: time to fetch the most recent value for a given parameter
 class ReadLatestBenchmarkResult(Base):
     __tablename__ = "read_latest_benchmark_results"
 
@@ -192,8 +193,9 @@ class ReadLatestBenchmarkResult(Base):
             "elapsed_time_ns": self.elapsed_time_ns,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
-        
 
+
+# one row per query: time to fetch all values for a parameter within a time range
 class ReadRangeBenchmarkResult(Base):
     __tablename__ = "read_range_benchmark_results"
 
@@ -230,11 +232,10 @@ class ReadRangeBenchmarkResult(Base):
             "elapsed_time_ns": self.elapsed_time_ns,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
-        
 
 
-
-
+# one row per query: time to count distinct series at different granularities
+# (single sensor, single parameter across all nodes, or everything
 class ReadCardinalityBenchmarkResult(Base):
     __tablename__ = "read_cardinality_benchmark_results"
 
@@ -245,8 +246,8 @@ class ReadCardinalityBenchmarkResult(Base):
     database_version = Column(String, nullable=True)
 
     cardinality_level = Column(String, nullable=False)  # "single_sensor" | "single_parameter_all_nodes" | "all"
-    parameter = Column(String, nullable=True)             # NULL when level = "all"
-    node_source_id = Column(String, nullable=True)        # NULL when level != "single_sensor"
+    parameter = Column(String, nullable=True)  # NULL when level = "all"
+    node_source_id = Column(String, nullable=True)  # NULL when level != "single_sensor"
 
     range_window = Column(String, nullable=False)
     start_time = Column(DateTime(timezone=True), nullable=False)
@@ -276,8 +277,9 @@ class ReadCardinalityBenchmarkResult(Base):
             "elapsed_time_ns": self.elapsed_time_ns,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
-        
 
+
+# one row per query: time to compute avg/min/max over a parameter within a time range
 class ReadAggregateBenchmarkResult(Base):
     __tablename__ = "read_aggregate_benchmark_results"
 
@@ -320,9 +322,9 @@ class ReadAggregateBenchmarkResult(Base):
             "elapsed_time_ns": self.elapsed_time_ns,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
-        
-        
 
+
+# one row per query: time to bucket a parameter into fixed intervals (e.g. hourly averages)
 class ReadBucketedBenchmarkResult(Base):
     __tablename__ = "read_bucketed_benchmark_results"
 
@@ -361,4 +363,3 @@ class ReadBucketedBenchmarkResult(Base):
             "elapsed_time_ns": self.elapsed_time_ns,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
-        

@@ -43,6 +43,7 @@ for filename in sorted(os.listdir(DATA_DIR)):
         "json_data_mb": round(data_size_mb, 3),
     })
 
+# sort by batch_id 
 rows.sort(key=lambda x: x["batch_id"])
 
 with open(OUTPUT_FILE, "w", newline="") as f:

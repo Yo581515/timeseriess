@@ -7,7 +7,6 @@ from src.databases.mongodb.client import MongoDBClient
 import time
 
 
-
 class MongoDBRepository(MongoDBClient):
     """
     Repo = Client + CRUD.
@@ -15,12 +14,11 @@ class MongoDBRepository(MongoDBClient):
     inside the benchmark loop to minimize Python overhead in timed sections.
     """
 
-    def __init__(self, mongodb_config : MongoDBConfig, logger: logging.Logger):
+    def __init__(self, mongodb_config: MongoDBConfig, logger: logging.Logger):
         super().__init__(mongodb_config, logger)
         self.db = None
         self.collection = None
 
-  
     def connect_and_cache(self) -> bool:
         """
         Connect and cache db/collection objects for fast use in benchmarks.
@@ -28,34 +26,31 @@ class MongoDBRepository(MongoDBClient):
         if not self.connect():
             self.logger.error("connect_and_cache(): connect() failed")
             return False
-        
+
         if self.database_name is None:
             self.logger.error("connect_and_cache(): database_name is None")
             raise ValueError("database_name is required")
-        
+
         if self.collection_name is None:
             self.logger.error("connect_and_cache(): collection_name is None")
             raise ValueError("collection_name is required")
-        
+
         try:
             self.db = self.client[self.database_name]
         except Exception as e:
             self.logger.exception("Error accessing database '%s': %s", self.database_name, e)
             raise RuntimeError(f"Failed to access database '{self.database_name}'") from e
-        
+
         try:
             self.collection = self.db[self.collection_name]
         except Exception as e:
             self.logger.exception("Error accessing collection '%s': %s", self.collection_name, e)
             raise RuntimeError(f"Failed to access collection '{self.collection_name}'") from e
-            
-        
-        
 
-        self.logger.info("Cached db/collection handles (db=%s, collection=%s)", self.database_name, self.collection_name)
+        self.logger.info("Cached db/collection handles (db=%s, collection=%s)", self.database_name,
+                         self.collection_name)
         return True
-    
-    
+
     def disconnect(self) -> bool:
         self.db = None
         self.collection = None
@@ -69,7 +64,6 @@ class MongoDBRepository(MongoDBClient):
             raise RuntimeError("Collection not cached. Call connect_and_cache() first.")
         return self.collection
 
-
     def ping(self) -> bool:
         if self.client is None:
             self.logger.error("ping(): not connected")
@@ -82,8 +76,6 @@ class MongoDBRepository(MongoDBClient):
             self.logger.exception("Ping error: %s", e)
             raise RuntimeError("Ping failed.") from e
 
-   
-   
     def insert_one(self, doc: dict) -> bool:
         if not doc:
             self.logger.error("insert_one(): empty doc")
@@ -98,8 +90,7 @@ class MongoDBRepository(MongoDBClient):
         except Exception as e:
             self.logger.exception("insert_one() error: %s", e)
             raise RuntimeError("Failed to insert document.") from e
-        
-        
+
     def insert_many(self, docs: list[dict]) -> tuple[bool, float]:
         if not docs:
             self.logger.error("insert_many(): empty docs")
@@ -118,8 +109,6 @@ class MongoDBRepository(MongoDBClient):
             self.logger.exception("insert_many() error: %s", e)
             raise RuntimeError("Failed to insert documents.") from e
 
-  
-  
     def find_by_query(self, query: dict) -> list[dict]:
         if query is None:
             self.logger.error("find_by_query(): query is None")
@@ -133,7 +122,6 @@ class MongoDBRepository(MongoDBClient):
         except Exception as e:
             self.logger.exception("find_by_query() error: %s", e)
             raise RuntimeError("Failed to find documents.") from e
-
 
     def aggregate(self, pipeline: list[dict]) -> list[dict]:
         if not pipeline:
@@ -149,8 +137,6 @@ class MongoDBRepository(MongoDBClient):
             self.logger.exception("aggregate() error: %s", e)
             raise RuntimeError("Failed to aggregate documents.") from e
 
-        
-    
     def delete_by_query(self, query: dict) -> bool:
         if query is None:
             self.logger.error("delete_by_query(): query is None")
@@ -165,7 +151,7 @@ class MongoDBRepository(MongoDBClient):
         except Exception as e:
             self.logger.exception("delete_by_query() error: %s", e)
             raise RuntimeError("Failed to delete documents.") from e
-        
+
     def query_latest(self, parameter: str) -> tuple[dict | None, int]:
         if self.collection is None:
             raise RuntimeError("No collection available. Call connect_and_cache() first.")
@@ -186,7 +172,7 @@ class MongoDBRepository(MongoDBClient):
         except Exception as e:
             self.logger.exception("query_latest() error: %s", e)
             raise RuntimeError("Failed to query latest observation.") from e
-        
+
     def query_range(self, parameter: str, start_time: datetime, end_time: datetime) -> tuple[list[dict], int]:
         if self.collection is None:
             raise RuntimeError("No collection available. Call connect_and_cache() first.")
@@ -204,13 +190,13 @@ class MongoDBRepository(MongoDBClient):
         except Exception as e:
             self.logger.exception("query_range() error: %s", e)
             raise RuntimeError("Failed to query range.") from e
-        
+
     def query_cardinality(
-        self,
-        start_time: datetime,
-        end_time: datetime,
-        parameter: str | None = None,
-        node_source_id: str | None = None,
+            self,
+            start_time: datetime,
+            end_time: datetime,
+            parameter: str | None = None,
+            node_source_id: str | None = None,
     ) -> tuple[list[dict], int]:
         if self.collection is None:
             raise RuntimeError("No collection available. Call connect_and_cache() first.")
@@ -237,13 +223,12 @@ class MongoDBRepository(MongoDBClient):
         except Exception as e:
             self.logger.exception("query_cardinality() error: %s", e)
             raise RuntimeError("Failed to query cardinality.") from e
-        
-        
+
     def query_aggregate(
-        self,
-        parameter: str,
-        start_time: datetime,
-        end_time: datetime,
+            self,
+            parameter: str,
+            start_time: datetime,
+            end_time: datetime,
     ) -> tuple[dict, int]:
         if self.collection is None:
             raise RuntimeError("No collection available. Call connect_and_cache() first.")
@@ -280,15 +265,13 @@ class MongoDBRepository(MongoDBClient):
         except Exception as e:
             self.logger.exception("query_aggregate() error: %s", e)
             raise RuntimeError("Failed to query aggregate.") from e
-        
-
 
     def query_bucketed(
-        self,
-        parameter: str,
-        start_time: datetime,
-        end_time: datetime,
-        bucket_interval: tuple[str, int],
+            self,
+            parameter: str,
+            start_time: datetime,
+            end_time: datetime,
+            bucket_interval: tuple[str, int],
     ) -> tuple[list[dict], int]:
         if self.collection is None:
             raise RuntimeError("No collection available. Call connect_and_cache() first.")

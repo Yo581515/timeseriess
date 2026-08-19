@@ -14,7 +14,6 @@ class TimescaleDBRepo(TimeScaleDBClient):
     def __init__(self, timescaledb_config: TimeScaleDBConfig, logger: logging.Logger):
         super().__init__(timescaledb_config, logger)
 
-
     def ping(self) -> bool:
         with self.cursor() as cur:
             cur.execute("SELECT 1")
@@ -24,8 +23,7 @@ class TimescaleDBRepo(TimeScaleDBClient):
                 return True
             self.logger.error("TimescaleDB ping failed")
             return False
-        
-        
+
     def insert_one(self, observation: Observation) -> None:
         query = """
             INSERT INTO observations (
@@ -59,9 +57,9 @@ class TimescaleDBRepo(TimeScaleDBClient):
         except Exception as e:
             self.logger.error(f"Error inserting batch: {e}")
             raise Exception(f"Batch insert failed: {e}")
-        
+
     def delete_all(self) -> None:
-        
+
         try:
             with self.cursor() as cur:
                 cur.execute("TRUNCATE TABLE observations")
@@ -71,10 +69,10 @@ class TimescaleDBRepo(TimeScaleDBClient):
             raise Exception(f"Delete operation failed: {e}")
 
     def query_by_parameter(
-        self,
-        parameter: str,
-        start_time: datetime,
-        end_time: datetime,
+            self,
+            parameter: str,
+            start_time: datetime,
+            end_time: datetime,
     ) -> list[Observation]:
         query = """
             SELECT
@@ -93,7 +91,7 @@ class TimescaleDBRepo(TimeScaleDBClient):
             elapsed = time.perf_counter() - t0
             self.logger.info(f"Queried {len(rows)} observations in {elapsed:.6f} s")
             return [Observation(*row) for row in rows]
-        
+
     def query_latest(self, parameter: str) -> tuple[Observation | None, int]:
         query = """
             SELECT
@@ -111,13 +109,12 @@ class TimescaleDBRepo(TimeScaleDBClient):
             elapsed_ns = time.perf_counter_ns() - t0
             obs = Observation(*row) if row else None
             return obs, elapsed_ns
-        
-        
+
     def query_range(
-        self,
-        parameter: str,
-        start_time: datetime,
-        end_time: datetime,
+            self,
+            parameter: str,
+            start_time: datetime,
+            end_time: datetime,
     ) -> tuple[list[Observation], int]:
         query = """
             SELECT
@@ -136,14 +133,13 @@ class TimescaleDBRepo(TimeScaleDBClient):
             elapsed_ns = time.perf_counter_ns() - t0
             observations = [Observation(*row) for row in rows]
             return observations, elapsed_ns
-        
 
     def query_cardinality(
-        self,
-        start_time: datetime,
-        end_time: datetime,
-        parameter: str | None = None,
-        node_source_id: str | None = None,
+            self,
+            start_time: datetime,
+            end_time: datetime,
+            parameter: str | None = None,
+            node_source_id: str | None = None,
     ) -> tuple[list[Observation], int]:
         conditions = ["time >= %s", "time <= %s"]
         params = [start_time, end_time]
@@ -174,10 +170,10 @@ class TimescaleDBRepo(TimeScaleDBClient):
             return observations, elapsed_ns
 
     def query_aggregate(
-        self,
-        parameter: str,
-        start_time: datetime,
-        end_time: datetime,
+            self,
+            parameter: str,
+            start_time: datetime,
+            end_time: datetime,
     ) -> tuple[dict, int]:
         query = """
             SELECT
@@ -203,13 +199,13 @@ class TimescaleDBRepo(TimeScaleDBClient):
                 "row_count": row[3],
             }
             return result, elapsed_ns
-        
+
     def query_bucketed(
-        self,
-        parameter: str,
-        start_time: datetime,
-        end_time: datetime,
-        bucket_interval: str,
+            self,
+            parameter: str,
+            start_time: datetime,
+            end_time: datetime,
+            bucket_interval: str,
     ) -> tuple[list[dict], int]:
         query = """
             SELECT
@@ -235,34 +231,37 @@ class TimescaleDBRepo(TimeScaleDBClient):
             ]
             return buckets, elapsed_ns
 
+
 if __name__ == "__main__":
     from pprint import pprint
     from src.common.config import load_config
     from src.common.logger import get_logger
     from src.databases.timescaledb.config import get_timescaledb_config
 
+
     def utc_now() -> datetime:
         return datetime.now(timezone.utc)
 
-    timescale_config  = load_config("./configs/config-timescaledb.yml")
-    logger            = get_logger("timescaledb_repo", timescale_config["general"]["log_file"])
-    timescaledb       = TimescaleDBRepo(get_timescaledb_config(timescale_config["database"]), logger)
+
+    timescale_config = load_config("./configs/config-timescaledb.yml")
+    logger = get_logger("timescaledb_repo", timescale_config["general"]["log_file"])
+    timescaledb = TimescaleDBRepo(get_timescaledb_config(timescale_config["database"]), logger)
 
     print("ping:", timescaledb.ping())
 
     try:
         obs = Observation(
-            time             = utc_now(),
-            node_source      = "test_node",
-            node_source_id   = "test_node_id",
-            latitude         = 60.090717,
-            longitude        = 5.263733,
-            sensor_source    = "test_sensor",
-            sensor_source_id = "test_sensor_id",
-            parameter        = "sea_water_temperature",
-            value            = 16.71,
-            unit             = "degrees_C",
-            quality_codes    = [0],
+            time=utc_now(),
+            node_source="test_node",
+            node_source_id="test_node_id",
+            latitude=60.090717,
+            longitude=5.263733,
+            sensor_source="test_sensor",
+            sensor_source_id="test_sensor_id",
+            parameter="sea_water_temperature",
+            value=16.71,
+            unit="degrees_C",
+            quality_codes=[0],
         )
         timescaledb.insert_one(obs)
         print("insert_one ok")
@@ -270,9 +269,9 @@ if __name__ == "__main__":
         logger.error(f"insert_one failed: {e}")
 
     try:
-        end_dt   = utc_now()
+        end_dt = utc_now()
         start_dt = end_dt - timedelta(hours=1)
-        results  = timescaledb.query_by_parameter("sea_water_temperature", start_dt, end_dt)
+        results = timescaledb.query_by_parameter("sea_water_temperature", start_dt, end_dt)
         logger.info(f"query returned {len(results)} rows")
         if results:
             print(results[0])

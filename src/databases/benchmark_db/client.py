@@ -27,15 +27,20 @@ class BenchmarkDBClient:
             self.logger.info("Connecting to Postgres...")
             self.engine = create_engine(
                 self.url,
+
+                # scope all queries to the configured schema instead of "public"
                 connect_args={"options": f"-csearch_path={self.schema}"},
                 pool_pre_ping=True,
             )
-            self.SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=self.engine, expire_on_commit=False,)
+            self.SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=self.engine,
+                                             expire_on_commit=False, )
 
+            # make sure the schema exists before anything tries to use it
             with self.engine.begin() as conn:
                 conn.execute(text(f'CREATE SCHEMA IF NOT EXISTS "{self.schema}"'))
             db = self.SessionLocal()
             try:
+                # simple query just to confirm the connection actually works
                 db.execute(text("SELECT 1"))
             finally:
                 db.close()
@@ -69,7 +74,7 @@ class BenchmarkDBClient:
             return True
         except Exception as e:
             self.logger.error("Disconnection error: %s", e)
-            raise Exception(f"Failed to disconnect: {e}")   
+            raise Exception(f"Failed to disconnect: {e}")
 
 
 if __name__ == "__main__":
@@ -82,12 +87,12 @@ if __name__ == "__main__":
     logger = get_logger("client.py", bmdb_config_dict["general"]["log_file"])
 
     benchmark_db_config = get_postgres_config(bmdb_config_dict["database"])
-    
+
     print(benchmark_db_config)
-    
+
     bmc = BenchmarkDBClient(benchmark_db_config, logger)
-    
-    print(bmc.connect() )
-    
+
+    print(bmc.connect())
+
     bmc.create_tables()
     bmc.disconnect()
